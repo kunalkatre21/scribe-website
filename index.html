@@ -137,19 +137,127 @@
         transform: translateX(-50%);
         z-index: 10;
       }
+
+      /* Auto-hide navbar styles */
+      .navbar-hidden {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      /* Ensure navbar shows when drawer is open */
+      #mobile-drawer:checked ~ .drawer-content header {
+        transform: translateY(0) !important;
+      }
+
+      /* Mobile navbar positioning */
+      .drawer.lg\\:hidden .navbar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+      }
     </style>
   </head>
-  <body class="min-h-screen">
-    <!-- Navbar -->
-    <header class="navbar bg-base-100/95 backdrop-blur-sm shadow-sm sticky top-0 z-50" style="display: flex;">
+  <body class="min-h-screen pt-16 lg:pt-0">
+    <!-- Drawer for Mobile Navigation -->
+    <div class="drawer lg:hidden">
+      <input id="mobile-drawer" type="checkbox" class="drawer-toggle" />
+      <div class="drawer-content">
+        <!-- Navbar -->
+        <header class="navbar bg-base-100/95 backdrop-blur-sm shadow-sm fixed top-0 left-0 right-0 z-50">
+          <div class="navbar-start">
+            <!-- Mobile Hamburger Menu -->
+            <label for="mobile-drawer" class="btn btn-ghost drawer-button">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+              </svg>
+            </label>
+
+            <!-- Logo -->
+            <a href="#" aria-label="Eka Scribe Home" class="btn btn-ghost text-xl font-semibold font-display">
+              <i class="fal fa-stethoscope text-primary"></i>
+              Eka Scribe
+            </a>
+          </div>
+
+          <!-- Mobile CTA Button (Prominent) -->
+          <div class="navbar-end lg:hidden">
+            <a href="#" class="btn btn-primary btn-sm">
+              <i class="fal fa-shopping-cart"></i>
+              Buy Now
+            </a>
+          </div>
+        </header>
+      </div>
+
+      <!-- Mobile Sidebar -->
+      <div class="drawer-side z-50">
+        <label for="mobile-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+        <aside class="min-h-full w-80 bg-base-100 text-base-content p-6">
+          <!-- Mobile Navigation Menu -->
+          <nav class="space-y-4">
+            <!-- Logo in Sidebar -->
+            <div class="flex items-center gap-3 mb-8 pb-4 border-b border-gray-300">
+              <i class="fal fa-stethoscope text-primary text-2xl"></i>
+              <span class="text-xl font-bold font-display">Eka Scribe</span>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="space-y-2">
+              <h3 class="font-semibold text-base-content/70 mb-3">Navigation</h3>
+              <a href="#how" class="btn btn-ghost justify-start w-full smooth-scroll">
+                <i class="fal fa-play-circle mr-3"></i>
+                How it works
+              </a>
+              <a href="#features" class="btn btn-ghost justify-start w-full smooth-scroll">
+                <i class="fal fa-star mr-3"></i>
+                Features
+              </a>
+              <a href="#integrations" class="btn btn-ghost justify-start w-full smooth-scroll">
+                <i class="fal fa-plug mr-3"></i>
+                Integrations
+              </a>
+              <a href="#pricing" class="btn btn-ghost justify-start w-full smooth-scroll">
+                <i class="fal fa-tags mr-3"></i>
+                Pricing
+              </a>
+              <a href="#faq" class="btn btn-ghost justify-start w-full smooth-scroll">
+                <i class="fal fa-question-circle mr-3"></i>
+                FAQ
+              </a>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="space-y-3 pt-6 border-t border-gray-300">
+              <h3 class="font-semibold text-base-content/70 mb-3">Get Started</h3>
+              <a href="#" class="btn btn-soft w-full">
+                <i class="fal fa-play mr-3"></i>
+                Try Now - Free
+              </a>
+              <a href="#" class="btn btn-primary w-full">
+                <i class="fal fa-shopping-cart mr-3"></i>
+                Buy Now
+              </a>
+            </div>
+          </nav>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Desktop Navbar (Hidden on Mobile) -->
+    <header class="navbar bg-base-100/95 backdrop-blur-sm shadow-sm sticky top-0 z-50 hidden lg:flex">
       <div class="navbar-start">
-        <a href="#" aria-label="Eka Scribe Home" class="btn btn-ghost text-xl font-semibold font-display" style="background-color: var(--btn-bg); font-size: var(--text-xl);">
+        <!-- Logo -->
+        <a href="#" aria-label="Eka Scribe Home" class="btn btn-ghost text-xl font-semibold font-display">
           <i class="fal fa-stethoscope text-primary"></i>
           Eka Scribe
         </a>
       </div>
-      <div class="navbar-center hidden md:flex">
-        <ul class="menu menu-horizontal px-1" style="margin-top: 0; margin-bottom: 0; padding-left: 0;">
+
+      <!-- Desktop Navigation -->
+      <div class="navbar-center">
+        <ul class="menu menu-horizontal px-1">
           <li><a href="#how" class="font-medium smooth-scroll">How it works</a></li>
           <li><a href="#features" class="font-medium smooth-scroll">Features</a></li>
           <li><a href="#integrations" class="font-medium smooth-scroll">Integrations</a></li>
@@ -157,6 +265,8 @@
           <li><a href="#faq" class="font-medium smooth-scroll">FAQ</a></li>
         </ul>
       </div>
+
+      <!-- Desktop CTA Buttons -->
       <div class="navbar-end gap-2">
         <a href="#" class="btn btn-soft">
           <i class="fal fa-play"></i>
@@ -291,7 +401,7 @@
 
     <!-- How it works - Left aligned timeline -->
     <section id="how" class="section py-20 container mx-auto px-4">
-      <div class="text-center mb-16">
+      <div class="text-center mt-16 mb-16">
         <h2 class="text-4xl font-bold font-display">How Eka Scribe Works</h2>
         <p class="mt-4 text-lg text-base-content/70">Simple 3-step process to transform your documentation workflow</p>
       </div>
@@ -618,34 +728,7 @@
       </div>
     </section>
 
-    <!-- Integrations -->
-    <section id="integrations" class="section py-20 container mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold font-display">Seamless Integrations</h2>
-        <p class="mt-4 text-lg text-base-content/70">Compatible with popular EMRs and clinical platforms</p>
-      </div>
-      
-      <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 max-w-4xl mx-auto">
-        <a href="#" class="product-snippet card bg-base-100 shadow hover:shadow-lg h-20 flex items-center justify-center">
-          <i class="fal fa-hospital text-2xl text-base-content/50"></i>
-        </a>
-        <a href="#" class="product-snippet card bg-base-100 shadow hover:shadow-lg h-20 flex items-center justify-center">
-          <i class="fal fa-laptop-medical text-2xl text-base-content/50"></i>
-        </a>
-        <a href="#" class="product-snippet card bg-base-100 shadow hover:shadow-lg h-20 flex items-center justify-center">
-          <i class="fal fa-database text-2xl text-base-content/50"></i>
-        </a>
-        <a href="#" class="product-snippet card bg-base-100 shadow hover:shadow-lg h-20 flex items-center justify-center">
-          <i class="fal fa-cloud-medical text-2xl text-base-content/50"></i>
-        </a>
-        <a href="#" class="product-snippet card bg-base-100 shadow hover:shadow-lg h-20 flex items-center justify-center">
-          <i class="fal fa-chart-network text-2xl text-base-content/50"></i>
-        </a>
-        <a href="#" class="product-snippet card bg-base-100 shadow hover:shadow-lg h-20 flex items-center justify-center">
-          <i class="fal fa-server text-2xl text-base-content/50"></i>
-        </a>
-      </div>
-    </section>
+
 
     <!-- Pricing -->
     <section id="pricing" class="section gradient-to-gray py-20">
@@ -655,36 +738,8 @@
           <p class="mt-4 text-lg text-base-content/70">Choose the plan that fits your practice</p>
         </div>
 
-        <div class="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
-          <!-- Free -->
-          <div class="product-snippet card bg-base-100 shadow-xl">
-            <div class="card-body items-start">
-              <h3 class="card-title font-display">
-                <i class="fal fa-gift text-primary mr-2"></i>
-                Free
-              </h3>
-              <div class="text-4xl font-extrabold font-display">
-                ₹0<span class="text-xl font-semibold">/mo</span>
-              </div>
-              <p class="text-base-content/70" style="flex-grow: 0;">Get started with basic features</p>
-              <ul class="space-y-3 mt-6 mb-6">
-                <li class="flex items-center">
-                  <i class="fal fa-check-circle text-success mr-3"></i>
-                  5 sessions
-                </li>
-                <li class="flex items-center">
-                  <i class="fal fa-check-circle text-success mr-3"></i>
-                  Chrome Extension
-                </li>
-              </ul>
-              <div class="card-actions mt-auto">
-                <a href="#" class="btn btn-primary w-full">
-                  <i class="fal fa-play mr-2"></i>
-                  Get Started
-                </a>
-              </div>
-            </div>
-          </div>
+        <div class="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+
 
           <!-- Monthly -->
           <div class="product-snippet card bg-base-100 shadow-xl">
@@ -758,10 +813,7 @@
           </div>
         </div>
 
-        <p class="mt-8 text-center text-sm text-base-content/60">
-          <i class="fal fa-info-circle mr-2"></i>
-          20 free sessions available for all plans.
-        </p>
+
       </div>
     </section>
 
@@ -975,6 +1027,44 @@
           }
         }
       );
+
+      // Auto-hide/show navbar on mobile scroll
+      let lastScrollTop = 0;
+      const mobileNavbar = document.querySelector('.drawer.lg\\:hidden header');
+      const scrollThreshold = 10; // Minimum scroll distance before hiding
+
+      window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        // Don't hide navbar if drawer is open
+        const drawerCheckbox = document.getElementById('mobile-drawer');
+        if (drawerCheckbox && drawerCheckbox.checked) return;
+
+        if (Math.abs(scrollTop - lastScrollTop) < scrollThreshold) return;
+
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+          // Scrolling down - hide navbar
+          mobileNavbar?.classList.add('navbar-hidden');
+        } else {
+          // Scrolling up - show navbar
+          mobileNavbar?.classList.remove('navbar-hidden');
+        }
+
+        lastScrollTop = scrollTop;
+      });
+
+      // Auto-close drawer when navigation links are clicked
+      document.addEventListener('click', function(e) {
+        const drawerCheckbox = document.getElementById('mobile-drawer');
+
+        // Check if clicked element is a navigation link inside the drawer
+        if (e.target.closest('.drawer-side a')) {
+          // Close the drawer by unchecking the checkbox
+          if (drawerCheckbox) {
+            drawerCheckbox.checked = false;
+          }
+        }
+      });
 
       // Stats counter animation
       ScrollTrigger.create({

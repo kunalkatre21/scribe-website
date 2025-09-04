@@ -247,6 +247,52 @@
         right: 0 !important;
         width: 100% !important;
       }
+
+      /* Region Selector Styles */
+      .region-btn {
+        background-color: transparent;
+        color: var(--color-primary);
+        transition: all 0.3s ease;
+      }
+
+      .region-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+
+      .region-btn.active {
+        background-color: var(--color-primary);
+        color: white;
+        box-shadow: 0 4px 12px rgba(33, 95, 255, 0.3);
+      }
+
+      .region-btn:hover:not(.active):not(:disabled) {
+        background-color: rgba(33, 95, 255, 0.1);
+      }
+
+      /* Pricing Toggle Styles */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      /* Pricing animation */
+      #pricing-display {
+        transition: all 0.3s ease;
+      }
+
+      #price-amount {
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
     </style>
   </head>
   <body class="min-h-screen pt-16 lg:pt-0">
@@ -855,75 +901,115 @@
           <p class="mt-4 text-lg text-base-content/70">Choose the plan that fits your practice</p>
         </div>
 
-        <div class="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
-
-
-          <!-- Monthly -->
-          <div class="product-snippet card bg-base-100 shadow-xl">
-            <div class="card-body items-start">
-              <h3 class="card-title font-display">
-                <i class="fal fa-calendar text-primary mr-2"></i>
-                Monthly
-              </h3>
-              <div class="text-4xl font-extrabold font-display">
-                ₹999<span class="text-xl font-semibold">/mo</span>
-              </div>
-              <p class="text-base-content/70" style="flex-grow: 0;">Perfect for individual practitioners</p>
-              <ul class="space-y-3 mt-6 mb-6">
-                <li class="flex items-center">
-                  <i class="fal fa-check-circle text-success mr-3"></i>
-                  Unlimited consultations
-                </li>
-                <li class="flex items-center">
-                  <i class="fal fa-check-circle text-success mr-3"></i>
-                  Chrome Extension
-                </li>
-                <li class="flex items-center">
-                  <i class="fal fa-check-circle text-success mr-3"></i>
-                  Priority support
-                </li>
-              </ul>
-              <div class="card-actions mt-auto">
-                <a href="https://rzp.io/rzp/opLuA0i" class="btn btn-primary w-full">
-                  <i class="fal fa-shopping-cart mr-2"></i>
-                  Buy Monthly
-                </a>
-              </div>
+        <!-- Region Selector -->
+        <div class="flex justify-center mb-8">
+          <div class="bg-base-200 rounded-full p-1 flex relative">
+            <div id="region-loading" class="absolute inset-0 flex items-center justify-center bg-base-200 rounded-full opacity-0 transition-opacity duration-300">
+              <div class="loading loading-spinner loading-sm text-primary"></div>
+              <span class="text-sm text-base-content/60 ml-2">Detecting location...</span>
             </div>
+            <button id="region-india" class="region-btn px-6 py-2 rounded-full font-medium transition-all duration-300" data-region="india" disabled>
+              <i class="fal fa-map-marker-alt mr-2"></i>
+              India
+            </button>
+            <button id="region-international" class="region-btn px-6 py-2 rounded-full font-medium transition-all duration-300" data-region="international" disabled>
+              <i class="fal fa-globe mr-2"></i>
+              International
+            </button>
           </div>
+        </div>
 
-          <!-- Yearly -->
-          <div class="product-snippet card bg-primary text-primary-content shadow-xl border-4 border-primary">
+        <!-- Single Dynamic Pricing Card -->
+        <div class="max-w-4xl mx-auto">
+          <div class="product-snippet card bg-base-100 shadow-2xl">
             <div class="card-body items-start">
-              <div class="flex items-center justify-between w-full">
-                <h3 class="card-title text-white font-display">
-                  <i class="fal fa-crown mr-2"></i>
-                  Yearly
-                </h3>
-                <div class="badge badge-secondary">Save 17%</div>
+              <!-- Billing Toggle -->
+              <div class="flex items-center justify-between w-full mb-6">
+                <div class="flex items-center gap-4">
+                  <span class="text-lg font-semibold text-base-content">Monthly</span>
+                  <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" id="billing-toggle" class="sr-only peer">
+                    <div class="w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary"></div>
+                  </label>
+                  <span class="text-lg font-semibold text-base-content">Yearly</span>
+                </div>
+                <div id="savings-badge" class="badge badge-secondary hidden">Save 17%</div>
               </div>
-              <div class="text-4xl font-extrabold text-white font-display">
-                ₹9,999<span class="text-xl font-semibold">/yr</span>
+
+              <!-- Dynamic Price Display -->
+              <div id="pricing-display" class="text-center mb-6">
+                <div class="text-5xl font-extrabold font-display mb-2">
+                  <span id="currency-symbol">₹</span><span id="price-amount">999</span>
+                  <span id="billing-period" class="text-xl font-semibold">/mo</span>
+                </div>
+                <p id="pricing-description" class="text-base-content/70">Perfect for individual practitioners</p>
               </div>
-              <p class="text-primary-content/80" style="flex-grow: 0;">Best value for busy practices</p>
-              <ul class="space-y-3 mt-6 mb-6">
-                <li class="flex items-center">
-                  <i class="fal fa-check-circle text-white mr-3"></i>
-                  Unlimited consultations
+
+              <!-- Single Feature List -->
+              <ul class="space-y-4 mb-8">
+                <li class="flex items-start">
+                  <i class="fal fa-infinity text-success mr-3 mt-1"></i>
+                  <div>
+                    <strong class="text-base-content">Unlimited note creation</strong>
+                    <div class="text-sm text-base-content/60">Document every consultation without limits — no hidden costs or restrictions.</div>
+                  </div>
                 </li>
-                <li class="flex items-center">
-                  <i class="fal fa-check-circle text-white mr-3"></i>
-                  Chrome Extension
+                <li class="flex items-start">
+                  <i class="fal fa-brain text-success mr-3 mt-1"></i>
+                  <div>
+                    <strong class="text-base-content">Smart visit preparation</strong>
+                    <div class="text-sm text-base-content/60">Get AI-generated patient context summaries before each consultation.</div>
+                  </div>
                 </li>
-                <li class="flex items-center">
-                  <i class="fal fa-check-circle text-white mr-3"></i>
-                  Priority support
+                <li class="flex items-start">
+                  <i class="fal fa-gift text-success mr-3 mt-1"></i>
+                  <div>
+                    <strong class="text-base-content">Free trial</strong>
+                    <div class="text-sm text-base-content/60">Experience Eka Scribe risk-free with a trial period before you commit.</div>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fal fa-edit text-success mr-3 mt-1"></i>
+                  <div>
+                    <strong class="text-base-content">Smart edit</strong>
+                    <div class="text-sm text-base-content/60">Ask Eka Scribe to refine or rework your notes instantly.</div>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fal fa-file-medical text-success mr-3 mt-1"></i>
+                  <div>
+                    <strong class="text-base-content">Specialty-ready templates</strong>
+                    <div class="text-sm text-base-content/60">Access pre-built formats tailored for different specialties like cardiology, pediatrics, oncology, and more.</div>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fal fa-user-md text-success mr-3 mt-1"></i>
+                  <div>
+                    <strong class="text-base-content">Instant patient instructions</strong>
+                    <div class="text-sm text-base-content/60">Turn your consultation notes into patient-friendly instructions in seconds.</div>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fal fa-graduation-cap text-success mr-3 mt-1"></i>
+                  <div>
+                    <strong class="text-base-content">Learn my style</strong>
+                    <div class="text-sm text-base-content/60">Edit once, and Eka Scribe adapts — future notes follow your preferred format automatically.</div>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fal fa-users text-success mr-3 mt-1"></i>
+                  <div>
+                    <strong class="text-base-content">Team template library</strong>
+                    <div class="text-sm text-base-content/60">Create and share custom templates across your clinic or hospital team.</div>
+                  </div>
                 </li>
               </ul>
-              <div class="card-actions mt-auto">
-                <a href="https://rzp.io/rzp/ekascribe_annual_plan" class="btn bg-white hover:bg-white/90 text-primary w-full">
+
+              <!-- Dynamic CTA Button -->
+              <div class="card-actions">
+                <a id="cta-button" href="https://buy.stripe.com/7sYfZj8t46BnfTvgG67ss00" class="btn btn-primary w-full">
                   <i class="fal fa-shopping-cart mr-2"></i>
-                  Buy Yearly
+                  <span id="cta-text">Buy Monthly</span>
                 </a>
               </div>
             </div>
@@ -1191,7 +1277,7 @@
           gsap.utils.toArray('.stat-value').forEach(stat => {
             const finalValue = stat.textContent.replace(/\D/g, '');
             const obj = { value: 0 };
-            
+
             gsap.to(obj, {
               duration: 2,
               value: finalValue,
@@ -1208,6 +1294,153 @@
             });
           });
         }
+      });
+
+      // Interactive Pricing Logic
+      document.addEventListener('DOMContentLoaded', function() {
+        // Pricing data
+        const pricingData = {
+          india: {
+            monthly: { price: '999', currency: '₹', period: '/mo', url: 'https://buy.stripe.com/7sYfZj8t46BnfTvgG67ss00' },
+            yearly: { price: '9,999', currency: '₹', period: '/yr', url: 'https://buy.stripe.com/bJecN7eRs4tffTvgG67ss01' }
+          },
+          international: {
+            monthly: { price: '49', currency: '$', period: '/mo', url: 'https://buy.stripe.com/7sY6oJ9x81h30YB4Xo7ss02' },
+            yearly: { price: '499', currency: '$', period: '/yr', url: 'https://buy.stripe.com/5kQ8wR24GgbX8r34Xo7ss03' }
+          }
+        };
+
+        // Get DOM elements
+        const regionIndia = document.getElementById('region-india');
+        const regionInternational = document.getElementById('region-international');
+        const regionLoading = document.getElementById('region-loading');
+        const billingToggle = document.getElementById('billing-toggle');
+        const currencySymbol = document.getElementById('currency-symbol');
+        const priceAmount = document.getElementById('price-amount');
+        const billingPeriod = document.getElementById('billing-period');
+        const pricingDescription = document.getElementById('pricing-description');
+        const savingsBadge = document.getElementById('savings-badge');
+        const ctaButton = document.getElementById('cta-button');
+        const ctaText = document.getElementById('cta-text');
+
+        // Current state
+        let currentRegion = 'international'; // Default to international, will be updated by geolocation
+        let currentBilling = 'monthly';
+
+        // Function to detect user's location based on IP
+        async function detectUserLocation() {
+          try {
+            // Use ipapi.co for free IP geolocation (no API key required)
+            const response = await fetch('https://ipapi.co/json/');
+            const data = await response.json();
+
+            // Check if user is in India
+            if (data.country_code === 'IN' || data.country_name === 'India') {
+              return 'india';
+            } else {
+              return 'international';
+            }
+          } catch (error) {
+            console.log('Geolocation detection failed, defaulting to international:', error);
+            // Fallback to international if geolocation fails
+            return 'international';
+          }
+        }
+
+        // Function to set region and update UI
+        function setRegion(newRegion) {
+          if (currentRegion !== newRegion) {
+            currentRegion = newRegion;
+
+            // Enable buttons and hide loading
+            regionIndia.disabled = false;
+            regionInternational.disabled = false;
+            regionLoading.style.opacity = '0';
+
+            // Update button states
+            if (newRegion === 'india') {
+              regionIndia.classList.add('active');
+              regionInternational.classList.remove('active');
+            } else {
+              regionInternational.classList.add('active');
+              regionIndia.classList.remove('active');
+            }
+
+            // Update pricing
+            updatePricing();
+          }
+        }
+
+        // Function to update pricing display
+        function updatePricing() {
+          const data = pricingData[currentRegion][currentBilling];
+
+          // Animate price change
+          gsap.to(priceAmount, {
+            duration: 0.3,
+            scale: 0.8,
+            opacity: 0,
+            onComplete: () => {
+              currencySymbol.textContent = data.currency;
+              priceAmount.textContent = data.price;
+              billingPeriod.textContent = data.period;
+              ctaButton.href = data.url;
+
+              gsap.to(priceAmount, {
+                duration: 0.3,
+                scale: 1,
+                opacity: 1
+              });
+            }
+          });
+
+          // Update CTA text
+          ctaText.textContent = `Buy ${currentBilling.charAt(0).toUpperCase() + currentBilling.slice(1)}`;
+
+          // Update description
+          pricingDescription.textContent = currentBilling === 'monthly'
+            ? 'Perfect for individual practitioners'
+            : 'Best value for busy practices';
+
+          // Show/hide savings badge
+          if (currentBilling === 'yearly') {
+            savingsBadge.classList.remove('hidden');
+          } else {
+            savingsBadge.classList.add('hidden');
+          }
+        }
+
+        // Region selector event listeners
+        regionIndia.addEventListener('click', function() {
+          setRegion('india');
+        });
+
+        regionInternational.addEventListener('click', function() {
+          setRegion('international');
+        });
+
+        // Billing toggle event listener
+        billingToggle.addEventListener('change', function() {
+          currentBilling = this.checked ? 'yearly' : 'monthly';
+          updatePricing();
+        });
+
+        // Initialize with geolocation detection
+        async function initializePricing() {
+          try {
+            // Show loading state
+            regionLoading.style.opacity = '1';
+
+            const detectedRegion = await detectUserLocation();
+            setRegion(detectedRegion);
+          } catch (error) {
+            console.log('Failed to detect location, using default:', error);
+            setRegion('international'); // Fallback to international
+          }
+        }
+
+        // Start the initialization
+        initializePricing();
       });
     </script>
   </body>

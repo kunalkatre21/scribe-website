@@ -105,7 +105,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     
     <!-- FontAwesome 6 Pro (Line Duotone) -->
-    <script src="https://kit.fontawesome.com/e4f2af7764.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/7206fb6e06.js" crossorigin="anonymous"></script>
     
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -126,6 +126,36 @@
         --radius-box: 0.75rem;
         --radius-field:0.5rem;
         --radius-selector: 0.75rem;
+        /* Tailwind CSS gradient variables */
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+        --tw-gradient-from: transparent;
+        --tw-gradient-to: transparent;
+        --tw-gradient-via-stops: var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to);
+        --tw-gradient-via: transparent;
+        --tw-gradient-position: var(--tw-gradient-from-position), var(--tw-gradient-to-position);
+        --tw-gradient-from-position: 0%;
+        --tw-gradient-to-position: 100%;
+
+        /* DaisyUI base color variables */
+        --b1: 255 255 255; /* base-100 */
+        --b2: 249 250 251; /* base-200 */
+        --b3: 243 244 246; /* base-300 */
+        --bc: 17 24 39; /* base-content */
+        --p: 33 95 255; /* primary */
+        --pf: 33 95 255; /* primary-focus */
+        --pc: 255 255 255; /* primary-content */
+        --s: 34 197 94; /* success */
+        --sf: 22 163 74; /* success-focus */
+        --sc: 255 255 255; /* success-content */
+        --a: 245 158 11; /* warning */
+        --af: 217 119 6; /* warning-focus */
+        --ac: 255 255 255; /* warning-content */
+        --e: 239 68 68; /* error */
+        --ef: 220 38 38; /* error-focus */
+        --ec: 255 255 255; /* error-content */
+        --n: 107 114 128; /* neutral */
+        --nf: 75 85 99; /* neutral-focus */
+        --nc: 255 255 255; /* neutral-content */
       }
       
       body {
@@ -288,76 +318,16 @@
         transition: all 0.3s ease;
       }
 
-      /* Enhanced Features Section Animations */
-      @keyframes fade-in-up {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+      /* Snippet container hover effect */
+      .snippet-container {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .snippet-container:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
       }
 
-      .animate-fade-in-up {
-        animation: fade-in-up 0.8s ease-out;
-      }
 
-      /* Enhanced product snippet hover effects */
-      .product-snippet:hover {
-        transform: translateY(-4px);
-      }
-
-      /* Custom button hover enhancements */
-      .btn:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      }
-
-      /* Enhanced card hover effects */
-      .card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-      }
-
-      /* Gradient text effects */
-      .bg-clip-text {
-        -webkit-background-clip: text;
-        background-clip: text;
-      }
-
-      /* Enhanced icon animations */
-      .fa-fw {
-        transition: all 0.3s ease;
-      }
-
-      /* Subtle backdrop blur support */
-      .backdrop-blur-sm {
-        backdrop-filter: blur(4px);
-        -webkit-backdrop-filter: blur(4px);
-      }
-
-      /* Enhanced shadow effects */
-      .shadow-primary\/25 {
-        --tw-shadow-color: rgb(33 95 255 / 0.25);
-        --tw-shadow: var(--tw-shadow-colored);
-      }
-
-      .shadow-secondary\/25 {
-        --tw-shadow-color: rgb(16 185 129 / 0.25);
-        --tw-shadow: var(--tw-shadow-colored);
-      }
-
-      .shadow-accent\/25 {
-        --tw-shadow-color: rgb(139 92 246 / 0.25);
-        --tw-shadow: var(--tw-shadow-colored);
-      }
-
-      .shadow-success\/25 {
-        --tw-shadow-color: rgb(34 197 94 / 0.25);
-        --tw-shadow: var(--tw-shadow-colored);
-      }
     </style>
   </head>
   <body class="min-h-screen pt-16 lg:pt-0">
@@ -818,273 +788,150 @@
     </section>
 
     <!-- Features -->
-    <section id="features" class="section py-20 bg-gradient-to-br from-base-200/30 via-base-100/50 to-base-200/30 relative overflow-hidden">
-      <!-- Subtle background pattern -->
-      <div class="absolute inset-0 opacity-5">
-        <div class="absolute top-20 left-10 w-32 h-32 bg-primary rounded-full blur-3xl"></div>
-        <div class="absolute bottom-20 right-10 w-40 h-40 bg-secondary rounded-full blur-3xl"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-accent rounded-full blur-3xl"></div>
-      </div>
-
-      <div class="container mx-auto px-4 relative z-10">
+    <section id="features" class="section py-20 bg-gradient-to-b from-base-100 to-base-200/30">
+      <div class="container mx-auto px-4">
         <div class="text-center mb-20">
-          <div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6 animate-pulse">
-            <i class="fal fa-sparkles"></i>
-            <span>Powerful Features</span>
-          </div>
-          <h2 class="text-4xl lg:text-5xl font-bold font-display bg-gradient-to-r from-base-content via-base-content to-base-content/80 bg-clip-text text-transparent">Our most-loved features</h2>
-          <p class="mt-6 text-lg text-base-content/70 max-w-3xl mx-auto leading-relaxed">Eka Scribe doesn’t just save you time — it transforms your whole workflow. Learn how our features work together to make your day easier.</p>
+          <h2 class="text-4xl font-bold font-display">Our most-loved features</h2>
+          <p class="mt-4 text-lg text-base-content/70 max-w-3xl mx-auto">Eka Scribe doesn’t just save you time — it transforms your whole workflow. Learn how our features work together to make your day easier.</p>
         </div>
-
-        <div class="max-w-7xl mx-auto space-y-32">
+        
+        <div class="max-w-7xl mx-auto space-y-24">
 
           <!-- Feature 1: Smart Visit Prep -->
-          <div class="product-snippet group grid md:grid-cols-2 gap-16 items-center opacity-0 animate-fade-in-up" style="animation-delay: 0.2s; animation-fill-mode: both;">
+          <div class="feature-block grid md:grid-cols-2 gap-12 items-center p-12 bg-base-200 rounded-2xl">
             <!-- Text Content -->
-            <div class="relative">
-              <!-- Feature Counter -->
-              <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-primary to-primary/80 text-white rounded-2xl font-bold text-lg mb-6 shadow-lg shadow-primary/25 group-hover:scale-110 transition-transform duration-300">
-                01
-              </div>
-
-              <h3 class="text-3xl lg:text-4xl font-bold font-display mb-6 bg-gradient-to-r from-base-content to-base-content/80 bg-clip-text text-transparent group-hover:from-primary group-hover:to-primary/80 transition-all duration-500">Smart visit prep</h3>
-              <p class="text-lg text-base-content/70 mb-10 leading-relaxed">Reclaim your focus before each visit. Get AI-generated patient context summaries before each consultation so you have the essential context you need without searching through records.</p>
-
-              <ul class="space-y-8">
-                <li class="flex items-start group/item hover:bg-base-100/50 p-4 rounded-xl transition-all duration-300 hover:shadow-sm">
-                  <div class="bg-gradient-to-br from-primary/15 to-primary/5 text-primary p-4 rounded-xl mr-5 group-hover/item:scale-110 group-hover/item:rotate-3 transition-all duration-300 shadow-sm">
-                    <i class="fal fa-user-circle fa-fw text-2xl group-hover/item:text-primary/80 transition-colors duration-300"></i>
-                  </div>
-                  <div class="flex-1">
-                    <h4 class="font-semibold text-lg mb-2 text-base-content group-hover/item:text-primary transition-colors duration-300">Patient background</h4>
-                    <p class="text-base-content/60 leading-relaxed">Read a quick summary of the patient's medical history.</p>
+            <div>
+              <h3 class="text-3xl lg:text-4xl font-bold font-display mb-4">Smart visit prep</h3>
+              <p class="text-lg text-base-content/70 mb-8">Reclaim your focus before each visit. Get AI-generated patient context summaries before each consultation so you have the essential context you need without searching through records.</p>
+              <ul class="space-y-6">
+                <li class="flex items-start">
+                  <div class="bg-primary/10 text-primary p-3 rounded-lg mr-4"><i class="fal fa-user-circle fa-fw text-xl"></i></div>
+                  <div>
+                    <h4 class="font-semibold text-lg">Patient background</h4>
+                    <p class="text-base-content/60">Read a quick summary of the patient’s medical history.</p>
                   </div>
                 </li>
-                <li class="flex items-start group/item hover:bg-base-100/50 p-4 rounded-xl transition-all duration-300 hover:shadow-sm">
-                  <div class="bg-gradient-to-br from-primary/15 to-primary/5 text-primary p-4 rounded-xl mr-5 group-hover/item:scale-110 group-hover/item:rotate-3 transition-all duration-300 shadow-sm">
-                    <i class="fal fa-tasks fa-fw text-2xl group-hover/item:text-primary/80 transition-colors duration-300"></i>
-                  </div>
-                  <div class="flex-1">
-                    <h4 class="font-semibold text-lg mb-2 text-base-content group-hover/item:text-primary transition-colors duration-300">Follow-up items</h4>
-                    <p class="text-base-content/60 leading-relaxed">Important topics from the last visit are clearly listed so you stay on track.</p>
+                <li class="flex items-start">
+                  <div class="bg-primary/10 text-primary p-3 rounded-lg mr-4"><i class="fal fa-tasks fa-fw text-xl"></i></div>
+                  <div>
+                    <h4 class="font-semibold text-lg">Follow-up items</h4>
+                    <p class="text-base-content/60">Important topics from the last visit are clearly listed so you stay on track.</p>
                   </div>
                 </li>
-                <li class="flex items-start group/item hover:bg-base-100/50 p-4 rounded-xl transition-all duration-300 hover:shadow-sm">
-                  <div class="bg-gradient-to-br from-primary/15 to-primary/5 text-primary p-4 rounded-xl mr-5 group-hover/item:scale-110 group-hover/item:rotate-3 transition-all duration-300 shadow-sm">
-                    <i class="fal fa-history fa-fw text-2xl group-hover/item:text-primary/80 transition-colors duration-300"></i>
-                  </div>
-                  <div class="flex-1">
-                    <h4 class="font-semibold text-lg mb-2 text-base-content group-hover/item:text-primary transition-colors duration-300">Last visit summary</h4>
-                    <p class="text-base-content/60 leading-relaxed">A condensed version of your last note saves you from searching through old records.</p>
+                <li class="flex items-start">
+                  <div class="bg-primary/10 text-primary p-3 rounded-lg mr-4"><i class="fal fa-history fa-fw text-xl"></i></div>
+                  <div>
+                    <h4 class="font-semibold text-lg">Last visit summary</h4>
+                    <p class="text-base-content/60">A condensed version of your last note saves you from searching through old records.</p>
                   </div>
                 </li>
               </ul>
             </div>
-            <!-- Enhanced Coded Snippet 1: Smart Prep UI -->
-            <div class="relative group/mockup">
-              <!-- Glow effect on hover -->
-              <div class="absolute -inset-1 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 rounded-3xl opacity-0 group-hover/mockup:opacity-100 transition-opacity duration-500 blur-lg"></div>
-
-              <div class="relative p-8 bg-base-100 rounded-3xl shadow-2xl border border-base-200/50 backdrop-blur-sm hover:shadow-primary/10 transition-all duration-500 hover:border-primary/20">
-                <!-- Header with enhanced styling -->
-                <div class="flex justify-between items-center mb-6 pb-6 border-b border-base-200/50">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center shadow-lg">
-                            <i class="fal fa-user text-white text-lg"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-lg text-base-content">Alex Burford</h4>
-                            <p class="text-sm text-base-content/60 flex items-center gap-2">
-                                <i class="fal fa-calendar text-primary/60"></i>
-                                Next appointment: 10:30 AM
-                            </p>
-                        </div>
-                    </div>
-                    <button class="btn btn-primary btn-sm shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group/btn">
-                        <i class="fal fa-play mr-2 group-hover/btn:animate-pulse"></i>
-                        <span>Start Visit</span>
-                    </button>
-                </div>
-
-                <!-- Content sections with animations -->
-                <div class="space-y-6">
-                    <div class="group/section hover:bg-base-50/50 p-4 rounded-xl transition-all duration-300 hover:shadow-sm">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-8 h-8 bg-gradient-to-br from-blue-500/20 to-blue-500/10 rounded-lg flex items-center justify-center">
-                                <i class="fal fa-user-circle text-blue-600 text-sm"></i>
+            <!-- Coded Snippet 1: Smart Prep UI -->
+            <div class="snippet-container p-6 bg-base-100 rounded-2xl shadow-xl border border-base-200">
+                <div class="card bg-transparent">
+                    <div class="card-body p-4">
+                        <div class="flex justify-between items-center mb-4 pb-4 border-b border-gray-200">
+                            <div>
+                                <h4 class="font-bold">Alex Burford</h4>
+                                <p class="text-xs text-base-content/60">Next appointment: 10:30 AM</p>
                             </div>
-                            <h5 class="font-semibold text-base text-base-content group-hover/section:text-blue-600 transition-colors duration-300">Patient Background</h5>
+                            <button class="btn btn-primary btn-sm"><i class="fal fa-play mr-2"></i>Start Visit</button>
                         </div>
-                        <div class="space-y-3 ml-11">
-                            <div class="h-3 w-full bg-gradient-to-r from-base-200 to-base-200/70 rounded-full animate-pulse"></div>
-                            <div class="h-3 w-5/6 bg-gradient-to-r from-base-200 to-base-200/70 rounded-full animate-pulse" style="animation-delay: 0.1s"></div>
-                            <div class="h-3 w-4/6 bg-gradient-to-r from-base-200 to-base-200/70 rounded-full animate-pulse" style="animation-delay: 0.2s"></div>
-                        </div>
-                    </div>
-
-                    <div class="group/section hover:bg-base-50/50 p-4 rounded-xl transition-all duration-300 hover:shadow-sm">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-8 h-8 bg-gradient-to-br from-amber-500/20 to-amber-500/10 rounded-lg flex items-center justify-center">
-                                <i class="fal fa-tasks text-amber-600 text-sm"></i>
+                        <div class="space-y-4">
+                            <div>
+                                <h5 class="font-semibold text-sm mb-2">Patient Background</h5>
+                                <div class="space-y-2">
+                                    <div class="loading-bar h-3 w-full bg-base-200 rounded"></div>
+                                    <div class="loading-bar h-3 w-5/6 bg-base-200 rounded"></div>
+                                </div>
                             </div>
-                            <h5 class="font-semibold text-base text-base-content group-hover/section:text-amber-600 transition-colors duration-300">Follow-Ups</h5>
-                        </div>
-                        <div class="space-y-3 ml-11">
-                            <div class="h-3 w-3/4 bg-gradient-to-r from-base-200 to-base-200/70 rounded-full animate-pulse" style="animation-delay: 0.3s"></div>
-                        </div>
-                    </div>
-
-                    <div class="group/section hover:bg-base-50/50 p-4 rounded-xl transition-all duration-300 hover:shadow-sm">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-8 h-8 bg-gradient-to-br from-emerald-500/20 to-emerald-500/10 rounded-lg flex items-center justify-center">
-                                <i class="fal fa-history text-emerald-600 text-sm"></i>
+                             <div>
+                                <h5 class="font-semibold text-sm mb-2">Follow-Ups</h5>
+                                <div class="space-y-2">
+                                    <div class="loading-bar h-3 w-1/2 bg-base-200 rounded"></div>
+                                </div>
                             </div>
-                            <h5 class="font-semibold text-base text-base-content group-hover/section:text-emerald-600 transition-colors duration-300">Last Visit Summary (04/01/2025)</h5>
-                        </div>
-                        <div class="space-y-3 ml-11">
-                            <div class="h-3 w-full bg-gradient-to-r from-base-200 to-base-200/70 rounded-full animate-pulse" style="animation-delay: 0.4s"></div>
-                            <div class="h-3 w-full bg-gradient-to-r from-base-200 to-base-200/70 rounded-full animate-pulse" style="animation-delay: 0.5s"></div>
-                            <div class="h-3 w-3/4 bg-gradient-to-r from-base-200 to-base-200/70 rounded-full animate-pulse" style="animation-delay: 0.6s"></div>
+                            <div>
+                                <h5 class="font-semibold text-sm mb-2">Last Visit Summary (04/01/2025)</h5>
+                                <div class="space-y-2">
+                                    <div class="loading-bar h-3 w-full bg-base-200 rounded"></div>
+                                    <div class="loading-bar h-3 w-full bg-base-200 rounded"></div>
+                                    <div class="loading-bar h-3 w-3/4 bg-base-200 rounded"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Subtle floating elements -->
-                <div class="absolute -top-2 -right-2 w-4 h-4 bg-primary/20 rounded-full animate-ping"></div>
-                <div class="absolute -bottom-1 -left-1 w-3 h-3 bg-secondary/20 rounded-full animate-pulse"></div>
-              </div>
             </div>
           </div>
 
           <!-- Feature 2: Note Customization -->
-          <div class="product-snippet group grid md:grid-cols-2 gap-16 items-center opacity-0 animate-fade-in-up" style="animation-delay: 0.4s; animation-fill-mode: both;">
-            <!-- Enhanced Coded Snippet 2: Templates UI -->
-            <div class="relative group/mockup md:order-last">
-              <!-- Glow effect on hover -->
-              <div class="absolute -inset-1 bg-gradient-to-r from-secondary/20 via-transparent to-secondary/20 rounded-3xl opacity-0 group-hover/mockup:opacity-100 transition-opacity duration-500 blur-lg"></div>
-
-              <div class="relative bg-base-100 rounded-3xl shadow-2xl border border-base-200/50 backdrop-blur-sm hover:shadow-secondary/10 transition-all duration-500 hover:border-secondary/20 overflow-hidden">
-                <!-- Enhanced Browser Mockup -->
-                <div class="mockup-browser bg-gradient-to-r from-base-200/80 to-base-200/60 border-b border-base-200/50">
+          <div class="feature-block grid md:grid-cols-2 gap-12 items-center p-12 bg-base-200 rounded-2xl">
+            <!-- Coded Snippet 2: Templates UI -->
+            <div class="mockup-browser bg-base-200 border border-gray-200">
                     <div class="mockup-browser-toolbar">
                       <div class="tabs">
-                        <a class="tab tab-lifted tab-active hover:tab-active transition-all duration-300 group/tab">
-                          <i class="fal fa-book mr-2"></i>My Library
-                        </a>
-                        <a class="tab tab-lifted hover:tab-active transition-all duration-300 group/tab">
-                          <i class="fal fa-users mr-2"></i>Team Library
-                        </a>
-                        <a class="tab tab-lifted hover:tab-active transition-all duration-300 group/tab bg-primary/10 hover:bg-primary/20">
-                          <i class="fal fa-plus mr-2"></i>+ New
-                        </a>
+                        <a class="tab tab-lifted tab-active">My Library</a> 
+                        <a class="tab tab-lifted">Team Library</a>
+                        <a class="tab tab-lifted">+ New</a>
                       </div>
                     </div>
-                </div>
-
-                <div class="bg-base-100 p-6">
-                    <div class="overflow-x-auto">
-                        <table class="table table-sm">
-                          <thead class="border-b-2 border-base-200/50">
-                            <tr>
-                              <th class="font-semibold text-base-content/80">Template Name</th>
-                              <th class="font-semibold text-base-content/80">Specialty</th>
-                              <th class="font-semibold text-base-content/80">Status</th>
-                            </tr>
-                          </thead>
-                          <tbody class="divide-y divide-base-200/30">
-                            <tr class="hover:bg-base-50/50 transition-all duration-300 group/row">
-                              <td class="py-4">
-                                <div class="flex items-center gap-3">
-                                  <div class="w-8 h-8 bg-gradient-to-br from-blue-500/20 to-blue-500/10 rounded-lg flex items-center justify-center group-hover/row:scale-110 transition-transform duration-300">
-                                    <i class="fal fa-file-alt text-blue-600 text-sm"></i>
-                                  </div>
-                                  <span class="font-medium text-base-content group-hover/row:text-blue-600 transition-colors duration-300">Sick Visit</span>
-                                </div>
-                              </td>
-                              <td class="py-4">
-                                <span class="badge badge-outline badge-sm">Emergency</span>
-                              </td>
-                              <td class="py-4"></td>
-                            </tr>
-                            <tr class="bg-gradient-to-r from-primary/5 to-primary/10 hover:from-primary/10 hover:to-primary/15 transition-all duration-300 group/row border-l-4 border-primary/50">
-                              <td class="py-4">
-                                <div class="flex items-center gap-3">
-                                  <div class="w-8 h-8 bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg flex items-center justify-center group-hover/row:scale-110 transition-transform duration-300">
-                                    <i class="fal fa-file-alt text-primary text-sm"></i>
-                                  </div>
-                                  <span class="font-medium text-base-content group-hover/row:text-primary transition-colors duration-300">New Patient Visit</span>
-                                </div>
-                              </td>
-                              <td class="py-4">
-                                <span class="badge badge-primary badge-sm">Pediatrics</span>
-                              </td>
-                              <td class="py-4">
-                                <span class="badge badge-success badge-xs animate-pulse">
-                                  <i class="fal fa-check mr-1"></i>✓ Added
-                                </span>
-                              </td>
-                            </tr>
-                            <tr class="hover:bg-base-50/50 transition-all duration-300 group/row">
-                              <td class="py-4">
-                                <div class="flex items-center gap-3">
-                                  <div class="w-8 h-8 bg-gradient-to-br from-purple-500/20 to-purple-500/10 rounded-lg flex items-center justify-center group-hover/row:scale-110 transition-transform duration-300">
-                                    <i class="fal fa-file-alt text-purple-600 text-sm"></i>
-                                  </div>
-                                  <span class="font-medium text-base-content group-hover/row:text-purple-600 transition-colors duration-300">Wellness Visit</span>
-                                </div>
-                              </td>
-                              <td class="py-4">
-                                <span class="badge badge-outline badge-sm">Psychiatry</span>
-                              </td>
-                              <td class="py-4"></td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                </div>
-
-                <!-- Floating elements -->
-                <div class="absolute top-4 right-4 w-2 h-2 bg-secondary/30 rounded-full animate-ping"></div>
-                <div class="absolute bottom-6 left-6 w-3 h-3 bg-primary/20 rounded-full animate-pulse"></div>
-              </div>
+                    <div class="bg-base-100 px-4 py-4">
+                        <div class="overflow-x-auto">
+                            <table class="table table-sm">
+                              <thead>
+                                <tr>
+                                  <th>Template Name</th>
+                                  <th>Specialty</th>
+                                  <th>Status</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td><i class="fal fa-file-alt mr-2 text-primary"></i>Sick Visit</td>
+                                  <td>Emergency</td>
+                                  <td></td>
+                                </tr>
+                                <tr class="highlight-row bg-primary/10">
+                                  <td><i class="fal fa-file-alt mr-2 text-primary"></i>New Patient Visit</td>
+                                  <td>Pediatrics</td>
+                                  <td><span class="badge badge-ghost badge-xs">✓ Added</span></td>
+                                </tr>
+                                <tr>
+                                  <td><i class="fal fa-file-alt mr-2 text-primary"></i>Wellness Visit</td>
+                                  <td>Psychiatry</td>
+                                  <td></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                    </div>
             </div>
-
             <!-- Text Content -->
-            <div class="relative">
-              <!-- Feature Counter -->
-              <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-secondary to-secondary/80 text-white rounded-2xl font-bold text-lg mb-6 shadow-lg shadow-secondary/25 group-hover:scale-110 transition-transform duration-300">
-                02
-              </div>
-
-              <h3 class="text-3xl lg:text-4xl font-bold font-display mb-6 bg-gradient-to-r from-base-content to-base-content/80 bg-clip-text text-transparent group-hover:from-secondary group-hover:to-secondary/80 transition-all duration-500">Note customization</h3>
-              <p class="text-lg text-base-content/70 mb-10 leading-relaxed">Create templates that match your practice. Use pre-made formats, build your own from scratch, or simply edit a note and ask Eka Scribe to learn your style.</p>
-
-              <ul class="space-y-8">
-                <li class="flex items-start group/item hover:bg-base-100/50 p-4 rounded-xl transition-all duration-300 hover:shadow-sm">
-                  <div class="bg-gradient-to-br from-secondary/15 to-secondary/5 text-secondary p-4 rounded-xl mr-5 group-hover/item:scale-110 group-hover/item:rotate-3 transition-all duration-300 shadow-sm">
-                    <i class="fal fa-file-medical fa-fw text-2xl group-hover/item:text-secondary/80 transition-colors duration-300"></i>
-                  </div>
-                  <div class="flex-1">
-                    <h4 class="font-semibold text-lg mb-2 text-base-content group-hover/item:text-secondary transition-colors duration-300">Specialty-ready templates</h4>
-                    <p class="text-base-content/60 leading-relaxed">Access pre-built formats for cardiology, pediatrics, oncology, and more.</p>
+            <div>
+              <h3 class="text-3xl lg:text-4xl font-bold font-display mb-4">Customized notes for every doctor </h3>
+              <p class="text-lg text-base-content/70 mb-8">Large library of pre defined notes or simply just create your own template.</p>
+              <ul class="space-y-6">
+                <li class="flex items-start">
+                  <div class="bg-primary/10 text-primary p-3 rounded-lg mr-4"><i class="fal fa-link fa-fw text-xl"></i></div>
+                  <div>
+                    <h4 class="font-semibold text-lg">Seamless EMR integration</h4>
+                    <p class="text-base-content/60">via one-click Chrome extension</p>
                   </div>
                 </li>
-                <li class="flex items-start group/item hover:bg-base-100/50 p-4 rounded-xl transition-all duration-300 hover:shadow-sm">
-                  <div class="bg-gradient-to-br from-secondary/15 to-secondary/5 text-secondary p-4 rounded-xl mr-5 group-hover/item:scale-110 group-hover/item:rotate-3 transition-all duration-300 shadow-sm">
-                    <i class="fal fa-graduation-cap fa-fw text-2xl group-hover/item:text-secondary/80 transition-colors duration-300"></i>
-                  </div>
-                  <div class="flex-1">
-                    <h4 class="font-semibold text-lg mb-2 text-base-content group-hover/item:text-secondary transition-colors duration-300">Learn my style</h4>
-                    <p class="text-base-content/60 leading-relaxed">Edit once, and the AI adapts — future notes will follow your preferred format automatically.</p>
+                <li class="flex items-start">
+                  <div class="bg-primary/10 text-primary p-3 rounded-lg mr-4"><i class="fal fa-bolt fa-fw text-xl"></i></div>
+                  <div>
+                    <h4 class="font-semibold text-lg">Generate instant notes</h4>
+                    <p class="text-base-content/60">EMR-ready SOAP format, prescriptions and summaries</p>
                   </div>
                 </li>
-                <li class="flex items-start group/item hover:bg-base-100/50 p-4 rounded-xl transition-all duration-300 hover:shadow-sm">
-                  <div class="bg-gradient-to-br from-secondary/15 to-secondary/5 text-secondary p-4 rounded-xl mr-5 group-hover/item:scale-110 group-hover/item:rotate-3 transition-all duration-300 shadow-sm">
-                    <i class="fal fa-users fa-fw text-2xl group-hover/item:text-secondary/80 transition-colors duration-300"></i>
-                  </div>
-                  <div class="flex-1">
-                    <h4 class="font-semibold text-lg mb-2 text-base-content group-hover/item:text-secondary transition-colors duration-300">Team template library</h4>
-                    <p class="text-base-content/60 leading-relaxed">Create and share custom templates across your entire clinic or hospital team.</p>
+                <li class="flex items-start">
+                  <div class="bg-primary/10 text-primary p-3 rounded-lg mr-4"><i class="fal fa-file-alt fa-fw text-xl"></i></div>
+                  <div>
+                    <h4 class="font-semibold text-lg">Specialty templates</h4>
+                    <p class="text-base-content/60">Match SOAP, OPD notes, prescription formats</p>
                   </div>
                 </li>
               </ul>
@@ -1092,251 +939,120 @@
           </div>
 
           <!-- Feature 3: Smart Edit -->
-          <div class="product-snippet group grid md:grid-cols-2 gap-16 items-center opacity-0 animate-fade-in-up" style="animation-delay: 0.6s; animation-fill-mode: both;">
+          <div class="feature-block grid md:grid-cols-2 gap-12 items-center p-12 bg-base-200 rounded-2xl">
             <!-- Text Content -->
-            <div class="relative">
-              <!-- Feature Counter -->
-              <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-accent to-accent/80 text-white rounded-2xl font-bold text-lg mb-6 shadow-lg shadow-accent/25 group-hover:scale-110 transition-transform duration-300">
-                03
-              </div>
-
-              <h3 class="text-3xl lg:text-4xl font-bold font-display mb-6 bg-gradient-to-r from-base-content to-base-content/80 bg-clip-text text-transparent group-hover:from-accent group-hover:to-accent/80 transition-all duration-500">Smart edit</h3>
-              <p class="text-lg text-base-content/70 mb-10 leading-relaxed">Make complex edits to a note by simply writing or dictating your request. It's like having a conversation with your chart.</p>
-
-              <ul class="space-y-8">
-                <li class="flex items-start group/item hover:bg-base-100/50 p-4 rounded-xl transition-all duration-300 hover:shadow-sm">
-                  <div class="bg-gradient-to-br from-accent/15 to-accent/5 text-accent p-4 rounded-xl mr-5 group-hover/item:scale-110 group-hover/item:rotate-3 transition-all duration-300 shadow-sm">
-                    <i class="fal fa-comments fa-fw text-2xl group-hover/item:text-accent/80 transition-colors duration-300"></i>
-                  </div>
-                  <div class="flex-1">
-                    <h4 class="font-semibold text-lg mb-2 text-base-content group-hover/item:text-accent transition-colors duration-300">Understands natural language</h4>
-                    <p class="text-base-content/60 leading-relaxed">You can talk to Eka Scribe the same way you'd talk to a human assistant.</p>
+            <div>
+              <h3 class="text-3xl lg:text-4xl font-bold font-display mb-4">Smart edit</h3>
+              <p class="text-lg text-base-content/70 mb-8">Speak or type to edit your clinical notes, from quick corrections to entire summaries.</p>
+              <ul class="space-y-6">
+                <li class="flex items-start">
+                  <div class="bg-primary/10 text-primary p-3 rounded-lg mr-4"><i class="fal fa-user-md fa-fw text-xl"></i></div>
+                  <div>
+                    <h4 class="font-semibold text-lg">Doctor Chat</h4>
+                    <p class="text-base-content/60">Built for doctors, Eka Scribe understands your natural language and commands.</p>
                   </div>
                 </li>
-                <li class="flex items-start group/item hover:bg-base-100/50 p-4 rounded-xl transition-all duration-300 hover:shadow-sm">
-                  <div class="bg-gradient-to-br from-accent/15 to-accent/5 text-accent p-4 rounded-xl mr-5 group-hover/item:scale-110 group-hover/item:rotate-3 transition-all duration-300 shadow-sm">
-                    <i class="fal fa-file-alt fa-fw text-2xl group-hover/item:text-accent/80 transition-colors duration-300"></i>
-                  </div>
-                  <div class="flex-1">
-                    <h4 class="font-semibold text-lg mb-2 text-base-content group-hover/item:text-accent transition-colors duration-300">Aware of note's content</h4>
-                    <p class="text-base-content/60 leading-relaxed">The AI can reference any part of the note and understands medical terminology.</p>
+                <li class="flex items-start">
+                  <div class="bg-primary/10 text-primary p-3 rounded-lg mr-4"><i class="fal fa-brain fa-fw text-xl"></i></div>
+                  <div>
+                    <h4 class="font-semibold text-lg">Clinical Context</h4>
+                    <p class="text-base-content/60">Eka Scribe understands the clinical context, from medical terms to specific details in your note.</p>
                   </div>
                 </li>
-                <li class="flex items-start group/item hover:bg-base-100/50 p-4 rounded-xl transition-all duration-300 hover:shadow-sm">
-                  <div class="bg-gradient-to-br from-accent/15 to-accent/5 text-accent p-4 rounded-xl mr-5 group-hover/item:scale-110 group-hover/item:rotate-3 transition-all duration-300 shadow-sm">
-                    <i class="fal fa-magic fa-fw text-2xl group-hover/item:text-accent/80 transition-colors duration-300"></i>
-                  </div>
-                  <div class="flex-1">
-                    <h4 class="font-semibold text-lg mb-2 text-base-content group-hover/item:text-accent transition-colors duration-300">Easily adjusts format</h4>
-                    <p class="text-base-content/60 leading-relaxed">Ask for sweeping changes like "make this more concise" and get them done in seconds.</p>
+                <li class="flex items-start">
+                  <div class="bg-primary/10 text-primary p-3 rounded-lg mr-4"><i class="fal fa-file-text fa-fw text-xl"></i></div>
+                  <div>
+                    <h4 class="font-semibold text-lg">Fast Formatting</h4>
+                    <p class="text-base-content/60">Instantly adapt your note to any structure, from SOAP to prescriptions, and spend more time with patients.</p>
                   </div>
                 </li>
               </ul>
             </div>
-
-            <!-- Enhanced Coded Snippet 3: Smart Edit UI -->
-            <div class="relative group/mockup">
-              <!-- Glow effect on hover -->
-              <div class="absolute -inset-1 bg-gradient-to-r from-accent/20 via-transparent to-accent/20 rounded-3xl opacity-0 group-hover/mockup:opacity-100 transition-opacity duration-500 blur-lg"></div>
-
-              <div class="relative p-8 bg-base-100 rounded-3xl shadow-2xl border border-base-200/50 backdrop-blur-sm hover:shadow-accent/10 transition-all duration-500 hover:border-accent/20">
-                <!-- Background Note with enhanced styling -->
-                <div class="opacity-25 space-y-4 mb-6">
-                    <div class="h-5 w-full bg-gradient-to-r from-base-200 to-base-200/70 rounded-full animate-pulse"></div>
-                    <div class="h-5 w-5/6 bg-gradient-to-r from-base-200 to-base-200/70 rounded-full animate-pulse" style="animation-delay: 0.1s"></div>
-                    <div class="h-5 w-full bg-gradient-to-r from-base-200 to-base-200/70 rounded-full animate-pulse" style="animation-delay: 0.2s"></div>
-                    <div class="h-5 w-3/4 bg-gradient-to-r from-base-200 to-base-200/70 rounded-full animate-pulse" style="animation-delay: 0.3s"></div>
-                    <div class="h-5 w-full bg-gradient-to-r from-base-200 to-base-200/70 rounded-full animate-pulse" style="animation-delay: 0.4s"></div>
-                    <div class="h-5 w-4/5 bg-gradient-to-r from-base-200 to-base-200/70 rounded-full animate-pulse" style="animation-delay: 0.5s"></div>
+            <!-- Coded Snippet 3: Smart Edit UI -->
+            <div class="snippet-container relative overflow-hidden p-6 bg-gradient-to-br from-base-100 to-base-200/20 rounded-2xl shadow-xl border border-base-200">
+              <!-- Smart Edit Modal -->
+              <div class="smart-edit-modal card bg-base-100 shadow-2xl">
+                <div class="card-body p-4">
+                  <div class="flex items-center mb-2">
+                    <i class="fal fa-magic text-primary mr-2"></i>
+                    <h4 class="card-title text-base m-0">Smart Edit</h4>
+                  </div>
+                  <p class="text-xs text-base-content/60 mb-2">How should Eka Scribe improve this note?</p>
+                  <textarea class="textarea textarea-bordered textarea-sm w-full" rows="3" placeholder="e.g., Make this more concise..."></textarea>
+                  <div class="card-actions flex justify-end gap-2 mt-2">
+                    <button class="btn btn-ghost btn-xs">Close</button>
+                    <button class="btn btn-primary btn-xs">Update Note</button>
+                  </div>
                 </div>
-
-                <!-- Enhanced Smart Edit Modal -->
-                <div class="card bg-base-100 shadow-2xl border border-base-200/50 backdrop-blur-sm hover:shadow-accent/20 transition-all duration-500 group/modal">
-                    <div class="card-body p-6">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 bg-gradient-to-br from-accent/20 to-accent/10 rounded-xl flex items-center justify-center group-hover/modal:scale-110 transition-transform duration-300">
-                                <i class="fal fa-magic text-accent text-lg"></i>
-                            </div>
-                            <div>
-                                <h4 class="card-title text-lg font-bold text-base-content">Smart Edit</h4>
-                                <p class="text-sm text-base-content/60">How should Eka Scribe improve this note?</p>
-                            </div>
-                        </div>
-
-                        <div class="form-control mb-4">
-                            <textarea class="textarea textarea-bordered textarea-sm w-full resize-none bg-base-50 border-base-200/50 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all duration-300 hover:bg-base-100/50" rows="4" placeholder="e.g., Make this more concise and add a normal ROS section..."></textarea>
-                        </div>
-
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center gap-2 text-xs text-base-content/50">
-                                <i class="fal fa-sparkles text-accent/60"></i>
-                                <span>AI-powered editing</span>
-                            </div>
-                            <div class="card-actions gap-2">
-                                <button class="btn btn-ghost btn-sm hover:bg-base-200/50 transition-all duration-300">
-                                    <i class="fal fa-times mr-2"></i>Close
-                                </button>
-                                <button class="btn btn-accent btn-sm shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group/btn">
-                                    <i class="fal fa-wand-magic-sparkles mr-2 group-hover/btn:animate-spin"></i>
-                                    <span>Update Note</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Floating elements -->
-                <div class="absolute top-6 right-6 w-3 h-3 bg-accent/30 rounded-full animate-ping"></div>
-                <div class="absolute bottom-8 left-8 w-2 h-2 bg-primary/20 rounded-full animate-pulse"></div>
               </div>
             </div>
           </div>
 
           <!-- Feature 4: Patient Instructions -->
-          <div class="product-snippet group grid md:grid-cols-2 gap-16 items-center opacity-0 animate-fade-in-up" style="animation-delay: 0.8s; animation-fill-mode: both;">
-            <!-- Enhanced Coded Snippet 4: Patient Instructions UI -->
-            <div class="relative group/mockup md:order-last">
-              <!-- Glow effect on hover -->
-              <div class="absolute -inset-1 bg-gradient-to-r from-success/20 via-transparent to-success/20 rounded-3xl opacity-0 group-hover/mockup:opacity-100 transition-opacity duration-500 blur-lg"></div>
-
-              <div class="relative p-8 bg-base-100 rounded-3xl shadow-2xl border border-base-200/50 backdrop-blur-sm hover:shadow-success/10 transition-all duration-500 hover:border-success/20">
-                <div class="card bg-base-100 border-0 shadow-none">
-                    <div class="card-body p-0">
-                        <!-- Header with enhanced styling -->
-                        <div class="flex items-center gap-4 mb-6 pb-6 border-b border-base-200/50">
-                            <div class="w-12 h-12 bg-gradient-to-br from-success/20 to-success/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                <i class="fal fa-paper-plane text-success text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="card-title text-xl font-bold text-base-content mb-1">Secure Send to Patient</h4>
-                                <p class="text-sm text-base-content/60 flex items-center gap-2">
-                                    <i class="fal fa-shield-alt text-success/60"></i>
-                                    HIPAA compliant • Encrypted delivery
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Enhanced form controls -->
-                        <div class="space-y-6">
-                            <div class="form-control w-full group/field">
-                                <label class="label">
-                                    <span class="label-text font-semibold text-base-content flex items-center gap-2">
-                                        <i class="fal fa-envelope text-base-content/60"></i>
-                                        To:
-                                    </span>
-                                </label>
-                                <div class="relative">
-                                    <input type="text" value="y.johnson@email.com" class="input input-bordered input-sm w-full pr-10 bg-base-50 border-base-200/50 focus:border-success focus:outline-none focus:ring-2 focus:ring-success/20 transition-all duration-300" readonly />
-                                    <div class="absolute right-3 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-success rounded-full animate-pulse"></div>
-                                </div>
-                            </div>
-
-                            <div class="form-control w-full group/field">
-                                <label class="label">
-                                    <span class="label-text font-semibold text-base-content flex items-center gap-2">
-                                        <i class="fal fa-file-alt text-base-content/60"></i>
-                                        Patient Instructions:
-                                    </span>
-                                </label>
-                                <div class="p-5 bg-gradient-to-br from-base-50 to-base-100/50 rounded-2xl border border-base-200/30 hover:border-success/20 transition-all duration-300 group-hover/field:shadow-sm">
-                                    <div class="space-y-4 text-sm">
-                                        <div class="flex items-start gap-3">
-                                            <div class="w-6 h-6 bg-success/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                                                <i class="fal fa-clipboard-list text-success text-xs"></i>
-                                            </div>
-                                            <div>
-                                                <p class="font-semibold text-base-content mb-1">Summary:</p>
-                                                <p class="text-base-content/70 leading-relaxed">Follow-up regarding your recent visit and medication management.</p>
-                                            </div>
-                                        </div>
-                                        <div class="flex items-start gap-3">
-                                            <div class="w-6 h-6 bg-success/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                                                <i class="fal fa-tasks text-success text-xs"></i>
-                                            </div>
-                                            <div>
-                                                <p class="font-semibold text-base-content mb-2">Plan:</p>
-                                                <ul class="space-y-2 text-base-content/70">
-                                                    <li class="flex items-start gap-2">
-                                                        <div class="w-1.5 h-1.5 bg-success rounded-full mt-2 flex-shrink-0"></div>
-                                                        <span>Continue medication as prescribed</span>
-                                                    </li>
-                                                    <li class="flex items-start gap-2">
-                                                        <div class="w-1.5 h-1.5 bg-success rounded-full mt-2 flex-shrink-0"></div>
-                                                        <span>Schedule a follow-up in 2 weeks</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Enhanced action buttons -->
-                        <div class="flex justify-between items-center mt-8 pt-6 border-t border-base-200/50">
-                            <div class="flex items-center gap-2 text-xs text-base-content/50">
-                                <i class="fal fa-clock text-base-content/40"></i>
-                                <span>Estimated delivery: 2-3 minutes</span>
-                            </div>
-                            <div class="card-actions gap-3">
-                                <button class="btn btn-ghost btn-sm hover:bg-base-200/50 transition-all duration-300 group/cancel">
-                                    <i class="fal fa-times mr-2 group-hover/cancel:rotate-90 transition-transform duration-300"></i>
-                                    <span>Cancel</span>
-                                </button>
-                                <button class="btn btn-success btn-sm shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group/send">
-                                    <i class="fal fa-paper-plane mr-2 group-hover/send:animate-bounce"></i>
-                                    <span>Send Securely</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Floating elements -->
-                <div class="absolute top-8 right-8 w-4 h-4 bg-success/30 rounded-full animate-ping"></div>
-                <div class="absolute bottom-12 left-12 w-3 h-3 bg-primary/20 rounded-full animate-pulse"></div>
-              </div>
-            </div>
-
+          <div class="feature-block grid md:grid-cols-2 gap-12 items-center p-12 bg-base-200 rounded-2xl">
+            
             <!-- Text Content -->
-            <div class="relative">
-              <!-- Feature Counter -->
-              <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-success to-success/80 text-white rounded-2xl font-bold text-lg mb-6 shadow-lg shadow-success/25 group-hover:scale-110 transition-transform duration-300">
-                04
-              </div>
-
-              <h3 class="text-3xl lg:text-4xl font-bold font-display mb-6 bg-gradient-to-r from-base-content to-base-content/80 bg-clip-text text-transparent group-hover:from-success group-hover:to-success/80 transition-all duration-500">Patient instructions</h3>
-              <p class="text-lg text-base-content/70 mb-10 leading-relaxed">Transform complex medical notes into guidance that's easy for patients to understand, ready to share in an instant.</p>
-
-              <ul class="space-y-8">
-                <li class="flex items-start group/item hover:bg-base-100/50 p-4 rounded-xl transition-all duration-300 hover:shadow-sm">
-                  <div class="bg-gradient-to-br from-success/15 to-success/5 text-success p-4 rounded-xl mr-5 group-hover/item:scale-110 group-hover/item:rotate-3 transition-all duration-300 shadow-sm">
-                    <i class="fal fa-rocket fa-fw text-2xl group-hover/item:text-success/80 transition-colors duration-300"></i>
-                  </div>
-                  <div class="flex-1">
-                    <h4 class="font-semibold text-lg mb-2 text-base-content group-hover/item:text-success transition-colors duration-300">Automatically generated</h4>
-                    <p class="text-base-content/60 leading-relaxed">Every note comes with instructions that are ready to send.</p>
+            <div>
+              <h3 class="text-3xl lg:text-4xl font-bold font-display mb-4">Patient instructions</h3>
+              <p class="text-lg text-base-content/70 mb-8">Transform complex medical notes into guidance that’s easy for patients to understand, ready to share in an instant.</p>
+              <ul class="space-y-6">
+                <li class="flex items-start">
+                  <div class="bg-primary/10 text-primary p-3 rounded-lg mr-4"><i class="fal fa-calendar-check fa-fw text-xl"></i></div>
+                  <div>
+                    <h4 class="font-semibold text-lg">Instant follow-up guidance</h4>
+                    <p class="text-base-content/60">Automatically create clear, easy-to-understand follow-up guidance from your consultation notes.</p>
                   </div>
                 </li>
-                <li class="flex items-start group/item hover:bg-base-100/50 p-4 rounded-xl transition-all duration-300 hover:shadow-sm">
-                  <div class="bg-gradient-to-br from-success/15 to-success/5 text-success p-4 rounded-xl mr-5 group-hover/item:scale-110 group-hover/item:rotate-3 transition-all duration-300 shadow-sm">
-                    <i class="fal fa-language fa-fw text-2xl group-hover/item:text-success/80 transition-colors duration-300"></i>
-                  </div>
-                  <div class="flex-1">
-                    <h4 class="font-semibold text-lg mb-2 text-base-content group-hover/item:text-success transition-colors duration-300">Written in plain language</h4>
-                    <p class="text-base-content/60 leading-relaxed">Instructions have simple summaries and clear, actionable items for patients.</p>
+                <li class="flex items-start">
+                  <div class="bg-primary/10 text-primary p-3 rounded-lg mr-4"><i class="fal fa-robot fa-fw text-xl"></i></div>
+                  <div>
+                    <h4 class="font-semibold text-lg">Auto-generated summaries</h4>
+                    <p class="text-base-content/60">Each consultation note is paired with patient-ready instructions, prepared in seconds.</p>
                   </div>
                 </li>
-                <li class="flex items-start group/item hover:bg-base-100/50 p-4 rounded-xl transition-all duration-300 hover:shadow-sm">
-                  <div class="bg-gradient-to-br from-success/15 to-success/5 text-success p-4 rounded-xl mr-5 group-hover/item:scale-110 group-hover/item:rotate-3 transition-all duration-300 shadow-sm">
-                    <i class="fal fa-user-shield fa-fw text-2xl group-hover/item:text-success/80 transition-colors duration-300"></i>
+                <li class="flex items-start">
+                  <div class="bg-primary/10 text-primary p-3 rounded-lg mr-4"><i class="fal fa-list-check fa-fw text-xl"></i></div>
+                  <div>
+                    <h4 class="font-semibold text-lg">Simple and actionable checklist</h4>
+                    <p class="text-base-content/60">Instructions are written in plain language, with concise summaries and clear next steps patients can follow.</p>
                   </div>
-                  <div class="flex-1">
-                    <h4 class="font-semibold text-lg mb-2 text-base-content group-hover/item:text-success transition-colors duration-300">Fully in your control</h4>
-                    <p class="text-base-content/60 leading-relaxed">You can easily edit the instructions and choose when and how to send them.</p>
+                </li>
+                <li class="flex items-start">
+                  <div class="bg-primary/10 text-primary p-3 rounded-lg mr-4"><i class="fal fa-shield-alt fa-fw text-xl"></i></div>
+                  <div>
+                    <h4 class="font-semibold text-lg">Doctor-controlled</h4>
+                    <p class="text-base-content/60">You decide when and how to share instructions — giving you complete control over communication with your patients.</p>
                   </div>
                 </li>
               </ul>
+            </div>
+
+            <!-- Coded Snippet 4: Patient Instructions UI -->
+            <div class="snippet-container p-6 bg-base-100 rounded-2xl shadow-xl border border-base-200 md:order-first">
+                <div class="card bg-transparent">
+                    <div class="card-body p-0">
+                        <h4 class="card-title text-base mb-4"><i class="fal fa-paper-plane mr-2 text-primary"></i>Secure Send to Patient</h4>
+                        <div class="form-control w-full">
+                            <label class="label"><span class="label-text">To:</span></label>
+                            <input type="text" value="y.johnson@email.com" class="input input-bordered input-sm w-full" readonly />
+                        </div>
+                        <div class="form-control w-full">
+                            <label class="label"><span class="label-text">Instructions:</span></label>
+                            <div class="p-3 bg-base-200 rounded-lg text-xs space-y-2">
+                                <p><strong>Summary:</strong> Follow-up regarding your recent visit...</p>
+                                <p><strong>Plan:</strong></p>
+                                <ul class="list-disc list-inside">
+                                    <li>Continue medication as prescribed.</li>
+                                    <li>Schedule a follow-up in 2 weeks.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-actions justify-end mt-4">
+                            <button class="btn btn-ghost btn-sm">Cancel</button>
+                            <button class="send-btn btn btn-primary btn-sm">Send</button>
+                        </div>
+                    </div>
+                </div>
             </div>
           </div>
 
@@ -1594,6 +1310,7 @@
 
     <!-- Scripts -->
     <script>
+      
       // GSAP Setup
       gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -1661,21 +1378,6 @@
         );
       });
 
-      // Feature cards stagger animation
-      gsap.fromTo('.feature-card',
-        { y: 60, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: '#features',
-            start: "top 70%"
-          }
-        }
-      );
 
       // Auto-hide/show navbar on mobile scroll
       let lastScrollTop = 0;
@@ -1744,11 +1446,94 @@
 
       // Interactive Pricing Logic with Auto Location Detection
       document.addEventListener('DOMContentLoaded', function() {
+
+        // --- NEW: FEATURE ANIMATIONS ---
+        gsap.utils.toArray('.feature-block').forEach(block => {
+          gsap.from(block, {
+            opacity: 0,
+            y: 50,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: block,
+              start: "top 85%",
+            }
+          });
+        });
+
+        // Snippet-specific micro-animations
+        const featureBlocks = document.querySelectorAll('.feature-block');
+
+        // Animation for Feature 1: Smart Prep
+        if (featureBlocks[0]) {
+          const loadingBars = featureBlocks[0].querySelectorAll('.loading-bar');
+          ScrollTrigger.create({
+            trigger: featureBlocks[0],
+            start: "top 80%",
+            onEnter: () => gsap.from(loadingBars, {
+              width: '0%',
+              duration: 0.6,
+              stagger: 0.1,
+              ease: "power2.out",
+              delay: 0.3
+            })
+          });
+        }
+
+        // Animation for Feature 2: Templates
+        if (featureBlocks[1]) {
+          const highlightRow = featureBlocks[1].querySelector('.highlight-row');
+          ScrollTrigger.create({
+            trigger: featureBlocks[1],
+            start: "top 80%",
+            onEnter: () => gsap.from(highlightRow, {
+              opacity: 0,
+              x: -30,
+              duration: 0.5,
+              ease: "power2.out",
+              delay: 0.4
+            })
+          });
+        }
+
+        // Animation for Feature 3: Smart Edit
+        if (featureBlocks[2]) {
+          const modal = featureBlocks[2].querySelector('.smart-edit-modal');
+          ScrollTrigger.create({
+            trigger: featureBlocks[2],
+            start: "top 80%",
+            onEnter: () => gsap.from(modal, {
+              opacity: 0,
+              scale: 0.9,
+              duration: 0.5,
+              ease: "back.out(1.7)",
+              delay: 0.4
+            })
+          });
+        }
+
+        // Animation for Feature 4: Patient Instructions
+        if (featureBlocks[3]) {
+          const sendButton = featureBlocks[3].querySelector('.send-btn');
+          ScrollTrigger.create({
+            trigger: featureBlocks[3],
+            start: "top 80%",
+            onEnter: () => gsap.from(sendButton, {
+              opacity: 0,
+              scale: 0.8,
+              duration: 0.5,
+              ease: "back.out(1.7)",
+              delay: 0.5
+            })
+          });
+        }
+        // --- END OF NEW ANIMATIONS ---
+
         // Pricing data
         const pricingData = {
           india: {
-            monthly: { price: '999', currency: '₹', period: '/mo', url: 'https://buy.stripe.com/7sYfZj8t46BnfTvgG67ss00' },
-            yearly: { price: '9,999', currency: '₹', period: '/yr', url: 'https://buy.stripe.com/bJecN7eRs4tffTvgG67ss01' }
+            monthly: { price: '1,999', currency: '₹', period: '/mo', url: 'https://buy.stripe.com/7sYfZj8t46BnfTvgG67ss00' },
+            yearly: { price: '19,999', currency: '₹', period: '/yr', url: 'https://buy.stripe.com/bJecN7eRs4tffTvgG67ss01' }
           },
           international: {
             monthly: { price: '49', currency: '$', period: '/mo', url: 'https://buy.stripe.com/7sY6oJ9x81h30YB4Xo7ss02' },

@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Eka Scribe — AI-Powered Clinical Documentation</title>
+    <title>EkaScribe — AI-Powered Clinical Documentation</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Transform your clinical documentation workflow with Eka Scribe - AI-powered speech-to-text platform for doctors. Record consultations, get instant SOAP notes, prescriptions, and EMR-ready documentation in 15+ languages. Save 12+ hours weekly." />
+    <meta name="description" content="Transform your clinical documentation workflow with EkaScribe - AI-powered speech-to-text platform for doctors. Record consultations, get instant SOAP notes, prescriptions, and EMR-ready documentation in 15+ languages. Save 12+ hours weekly." />
     <meta name="keywords" content="AI clinical documentation, medical scribe, doctor dictation, SOAP notes, EMR integration, medical transcription, clinical notes, healthcare AI, doctor productivity, medical documentation" />
-    <meta name="author" content="Eka Scribe" />
+    <meta name="author" content="EkaScribe" />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="English" />
     <meta name="revisit-after" content="7 days" />
@@ -16,17 +16,17 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://eka.care/scribe" />
-    <meta property="og:title" content="Eka Scribe — AI-Powered Clinical Documentation" />
+    <meta property="og:title" content="EkaScribe — AI-Powered Clinical Documentation" />
     <meta property="og:description" content="Transform your clinical documentation workflow with AI-powered speech-to-text platform. Save 12+ hours weekly with instant SOAP notes and EMR integration." />
     <meta property="og:image" content="https://eka.care/scribe/assets/scribe-logo.svg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:site_name" content="Eka Scribe" />
+    <meta property="og:site_name" content="EkaScribe" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://eka.care/scribe" />
-    <meta name="twitter:title" content="Eka Scribe — AI-Powered Clinical Documentation" />
+    <meta name="twitter:title" content="EkaScribe — AI-Powered Clinical Documentation" />
     <meta name="twitter:description" content="Transform your clinical documentation workflow with AI-powered speech-to-text platform. Save 12+ hours weekly with instant SOAP notes and EMR integration." />
     <meta name="twitter:image" content="https://eka.care/scribe/assets/scribe-logo.svg" />
 
@@ -42,7 +42,7 @@
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "Eka Scribe",
+      "name": "EkaScribe",
       "description": "AI-powered clinical documentation platform that transforms doctor-patient conversations into structured clinical notes, SOAP notes, and prescriptions.",
       "url": "https://eka.care/scribe",
       "applicationCategory": "HealthcareApplication",
@@ -105,7 +105,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     
     <!-- FontAwesome 6 Pro (Line Duotone) -->
-    <script src="https://kit.fontawesome.com/e4f2af7764.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/7206fb6e06.js" crossorigin="anonymous"></script>
     
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -347,6 +347,13 @@
         transform: scale(1.05);
       }
 
+      /* Hide browser mockup dots on mobile */
+      @media (max-width: 767px) {
+        .mockup-browser .mockup-browser-toolbar::before {
+          display: none;
+        }
+      }
+
     </style>
   </head>
   <body class="min-h-screen pt-16 lg:pt-0">
@@ -365,9 +372,9 @@
             </label>
 
             <!-- Logo -->
-            <a href="#" aria-label="Eka Scribe Home" class="btn btn-ghost text-xl font-semibold font-display">
+            <a href="#" aria-label="EkaScribe Home" class="btn btn-ghost text-xl font-semibold font-display">
               <i class="fa-kit fa-scribe-logo"></i>
-              Eka Scribe
+              EkaScribe
             </a>
           </div>
 
@@ -390,7 +397,7 @@
             <!-- Logo in Sidebar -->
             <div class="flex items-center gap-3 mb-8 pb-4 border-b border-gray-300">
               <i class="fa-kit fa-scribe-logo text-2xl"></i>
-              <span class="text-xl font-bold font-display">Eka Scribe</span>
+              <span class="text-xl font-bold font-display">EkaScribe</span>
             </div>
 
             <!-- Navigation Links -->
@@ -435,9 +442,9 @@
     <header class="navbar bg-base-100/95 backdrop-blur-sm sticky top-0 z-50 hidden lg:flex">
       <div class="navbar-start">
         <!-- Logo -->
-        <a href="#" aria-label="Eka Scribe Home" class="btn btn-ghost text-xl font-semibold font-display">
+        <a href="#" aria-label="EkaScribe Home" class="btn btn-ghost text-xl font-semibold font-display">
           <i class="fa-kit fa-scribe-logo text-primary"></i>
-          Eka Scribe
+          EkaScribe
         </a>
       </div>
 
@@ -483,25 +490,21 @@
           </p>
           <div class="hero-cta mt-8 flex items-center justify-center gap-4">
             <a href="https://scribe.eka.care/" class="btn btn-primary btn-lg">
-              <i class="fal fa-sign-in-alt mr-2"></i>
-              Login
-            </a>
-            <a href="https://scribe.eka.care/" class="btn btn-soft btn-lg">
               <i class="fal fa-play mr-2"></i>
               Try for free
             </a>
           </div>
             <!-- Trusted by Partners -->
-          <div class="mt-12 w-full max-w-4xl mx-auto">
+          <div class="hero-trust-logos mt-12 w-full max-w-4xl mx-auto">
             <p class="text-center text-sm font-medium text-base-content/60 mb-4">
               Compliant with global standards and powered by industry leaders
             </p>
             <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 md:gap-x-12">
-              <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68c1880477db697f3db1889d_hippa.svg" alt="HIPAA Compliant" class="trust-logo h-8 md:h-10" />
-              <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68bea22769c186434f71902f_ISO%2027001%202022%20Certification%201.svg" alt="ISO 27001 Certified" class="trust-logo h-8 md:h-10" />
-              <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66d984e6c9a693f8a37dcd53_fhir.png" alt="FHIR Compliant" class="trust-logo h-8 md:h-10" />
-              <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66d984e66cc261c8552969a0_google.png" alt="Google Partner" class="trust-logo h-8 md:h-10" />
-              <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66d02a96ea82d9d21555c1cd_Frame%201618873280-1.webp" alt="AWS Partner" class="trust-logo h-8 md:h-10" />
+              <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68c285d30bdd4da06c2cac04_a4fdde8183aa250c3d0dc6999e5a9439_hippa-with-text.svg" alt="HIPAA Compliant" class="trust-logo h-10 md:h-16" />
+              <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68bea22769c186434f71902f_ISO%2027001%202022%20Certification%201.svg" alt="ISO 27001 Certified" class="trust-logo h-10 md:h-16" />
+              <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68c287ef334961ea555b563a_FHIR-with-text.svg" alt="FHIR Compliant" class="trust-logo h-10 md:h-16" />
+              <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66d984e66cc261c8552969a0_google.png" alt="Google Partner" class="trust-logo h-10 md:h-16" />
+              <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66d02a96ea82d9d21555c1cd_Frame%201618873280-1.webp" alt="AWS Partner" class="trust-logo h-10 md:h-16" />
             </div>
           </div>
         </div>
@@ -582,7 +585,7 @@
     <!-- How it works - Left aligned timeline -->
     <section id="how" class="section py-20 container mx-auto px-4">
       <div class="text-center mt-16 mb-16">
-        <h2 class="text-4xl font-bold font-display">How Eka Scribe Works</h2>
+        <h2 class="text-4xl font-bold font-display">How EkaScribe Works</h2>
         <p class="mt-4 text-lg text-base-content/70">Simple 3-step process to transform your documentation workflow</p>
       </div>
       
@@ -717,7 +720,7 @@
             <div class="stat-figure text-secondary">
               <i class="fal fa-chart-line text-3xl"></i>
             </div>
-            <div class="stat-title">Efficiency Boost</div>
+            <div class="stat-title">Efficiency Boost upto</div>
             <div class="stat-value text-secondary">80%</div>
             <div class="stat-desc">Less admin work</div>
           </div>
@@ -726,7 +729,7 @@
               <i class="fal fa-users text-3xl"></i>
             </div>
             <div class="stat-title">Happy Doctors</div>
-            <div class="stat-value text-accent">500+</div>
+            <div class="stat-value text-accent">5000+</div>
             <div class="stat-desc">Active users</div>
           </div>
         </div>
@@ -742,55 +745,69 @@
             </div>
 
             <div class="testimonial-scroller pb-8">
-                <div class="testimonial-track">
+                                <div class="testimonial-track">
                     <!-- Original 7 Testimonials -->
                     <div class="testimonial-card card bg-base-100 shadow-xl">
                         <div class="card-body">
                             <div class="flex items-center mb-4"><div class="avatar"><div class="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"><img src="https://i.pravatar.cc/150?u=doctor1" /></div></div><div class="ml-4"><h3 class="font-bold">Dr. Neelesh Kapoor</h3><p class="text-sm opacity-70">Senior Consultant Physician</p></div></div>
-                            <blockquote class="italic leading-relaxed">"Eka Scribe has completely changed how I document my patient consultations—it's hands-free, accurate, and incredibly fast. It saves me over 12 hours every week."</blockquote>
-                            <div class="rating rating-sm mt-4"><input type="radio" name="rating-1" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-1" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-1" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-1" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-1" class="mask mask-star-2 bg-primary" checked disabled /></div>
+                            <blockquote class="italic leading-relaxed">"EkaScribe has completely changed how I document my patient consultations—it's hands-free, accurate, and incredibly fast. It saves me over 12 hours every week."</blockquote>
+                            <div class="flex items-center gap-1 text-primary mt-4">
+                              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="testimonial-card card bg-base-100 shadow-xl">
                         <div class="card-body">
-                            <div class="flex items-center mb-4"><div class="avatar"><div class="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"><img src="https://i.pravatar.cc/150?u=doctor2" /></div></div><div class="ml-4"><h3 class="font-bold">Dr. Priya Sharma</h3><p class="text-sm opacity-70">Cardiologist, Mumbai</p></div></div>
+                            <div class="flex items-center mb-4"><div class="avatar"><div class="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"><img src="https://i.pravatar.cc/150?u=doctor5" /></div></div><div class="ml-4"><h3 class="font-bold">Dr. Priya Sharma</h3><p class="text-sm opacity-70">Cardiologist, Mumbai</p></div></div>
                             <blockquote class="italic leading-relaxed">"The multilingual support is incredible. I can conduct consultations in Hindi and get perfect English documentation. It's like having a silent, intelligent assistant."</blockquote>
-                            <div class="rating rating-sm mt-4"><input type="radio" name="rating-2" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-2" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-2" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-2" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-2" class="mask mask-star-2 bg-primary" checked disabled /></div>
+                            <div class="flex items-center gap-1 text-primary mt-4">
+                              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star text-gray-300"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="testimonial-card card bg-base-100 shadow-xl">
                         <div class="card-body">
                             <div class="flex items-center mb-4"><div class="avatar"><div class="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"><img src="https://i.pravatar.cc/150?u=doctor3" /></div></div><div class="ml-4"><h3 class="font-bold">Dr. Ananya Reddy</h3><p class="text-sm opacity-70">Pediatrician</p></div></div>
                             <blockquote class="italic leading-relaxed">"A game-changer for my practice. The pediatric templates are spot on, and I can focus more on my little patients instead of typing."</blockquote>
-                            <div class="rating rating-sm mt-4"><input type="radio" name="rating-3" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-3" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-3" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-3" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-3" class="mask mask-star-2 bg-primary" checked disabled /></div>
+                            <div class="flex items-center gap-1 text-primary mt-4">
+                              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="testimonial-card card bg-base-100 shadow-xl">
                         <div class="card-body">
                             <div class="flex items-center mb-4"><div class="avatar"><div class="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"><img src="https://i.pravatar.cc/150?u=doctor4" /></div></div><div class="ml-4"><h3 class="font-bold">Dr. Rohan Mehta</h3><p class="text-sm opacity-70">Orthopedic Surgeon</p></div></div>
-                            <blockquote class="italic leading-relaxed">"I was skeptical about AI, but Eka Scribe's accuracy with complex orthopedic terminology is impressive. The time saved on post-op notes is significant."</blockquote>
-                            <div class="rating rating-sm mt-4"><input type="radio" name="rating-4" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-4" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-4" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-4" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-4" class="mask mask-star-2 bg-primary" checked disabled /></div>
+                            <blockquote class="italic leading-relaxed">"I was skeptical about AI, but EkaScribe's accuracy with complex orthopedic terminology is impressive. The time saved on post-op notes is significant."</blockquote>
+                            <div class="flex items-center gap-1 text-primary mt-4">
+                              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star text-gray-300"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="testimonial-card card bg-base-100 shadow-xl">
                         <div class="card-body">
-                            <div class="flex items-center mb-4"><div class="avatar"><div class="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"><img src="https://i.pravatar.cc/150?u=doctor5" /></div></div><div class="ml-4"><h3 class="font-bold">Dr. Vikram Singh</h3><p class="text-sm opacity-70">General Practitioner</p></div></div>
+                            <div class="flex items-center mb-4"><div class="avatar"><div class="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"><img src="https://i.pravatar.cc/150?u=doctor2" /></div></div><div class="ml-4"><h3 class="font-bold">Dr. Vikram Singh</h3><p class="text-sm opacity-70">General Practitioner</p></div></div>
                             <blockquote class="italic leading-relaxed">"My EMR integration is now seamless. A single click transfers the entire SOAP note, formatted correctly. It has reduced my administrative burden by at least 80%."</blockquote>
-                            <div class="rating rating-sm mt-4"><input type="radio" name="rating-5" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-5" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-5" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-5" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-5" class="mask mask-star-2 bg-primary" checked disabled /></div>
+                            <div class="flex items-center gap-1 text-primary mt-4">
+                              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="testimonial-card card bg-base-100 shadow-xl">
                         <div class="card-body">
                             <div class="flex items-center mb-4"><div class="avatar"><div class="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"><img src="https://i.pravatar.cc/150?u=doctor6" /></div></div><div class="ml-4"><h3 class="font-bold">Dr. Fatima Khan</h3><p class="text-sm opacity-70">Dermatologist</p></div></div>
                             <blockquote class="italic leading-relaxed">"Patient instructions are generated instantly and are easy for them to understand. This has improved patient compliance and follow-ups."</blockquote>
-                            <div class="rating rating-sm mt-4"><input type="radio" name="rating-6" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-6" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-6" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-6" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-6" class="mask mask-star-2 bg-primary" checked disabled /></div>
+                            <div class="flex items-center gap-1 text-primary mt-4">
+                              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star text-gray-300"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="testimonial-card card bg-base-100 shadow-xl">
                         <div class="card-body">
                             <div class="flex items-center mb-4"><div class="avatar"><div class="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"><img src="https://i.pravatar.cc/150?u=doctor7" /></div></div><div class="ml-4"><h3 class="font-bold">Dr. Chen Wei</h3><p class="text-sm opacity-70">Oncologist</p></div></div>
                             <blockquote class="italic leading-relaxed">"This tool is invaluable for long, complex oncology consults. The AI summary helps track patient progress visit-over-visit. A must-have."</blockquote>
-                            <div class="rating rating-sm mt-4"><input type="radio" name="rating-7" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-7" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-7" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-7" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-7" class="mask mask-star-2 bg-primary" checked disabled /></div>
+                            <div class="flex items-center gap-1 text-primary mt-4">
+                              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
                         </div>
                     </div>
 
@@ -798,50 +815,64 @@
                     <div class="testimonial-card card bg-base-100 shadow-xl">
                         <div class="card-body">
                             <div class="flex items-center mb-4"><div class="avatar"><div class="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"><img src="https://i.pravatar.cc/150?u=doctor1" /></div></div><div class="ml-4"><h3 class="font-bold">Dr. Neelesh Kapoor</h3><p class="text-sm opacity-70">Senior Consultant Physician</p></div></div>
-                            <blockquote class="italic leading-relaxed">"Eka Scribe has completely changed how I document my patient consultations—it's hands-free, accurate, and incredibly fast. It saves me over 12 hours every week."</blockquote>
-                            <div class="rating rating-sm mt-4"><input type="radio" name="rating-1" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-1" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-1" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-1" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-1" class="mask mask-star-2 bg-primary" checked disabled /></div>
+                            <blockquote class="italic leading-relaxed">"EkaScribe has completely changed how I document my patient consultations—it's hands-free, accurate, and incredibly fast. It saves me over 12 hours every week."</blockquote>
+                            <div class="flex items-center gap-1 text-primary mt-4">
+                              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="testimonial-card card bg-base-100 shadow-xl">
                         <div class="card-body">
-                            <div class="flex items-center mb-4"><div class="avatar"><div class="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"><img src="https://i.pravatar.cc/150?u=doctor2" /></div></div><div class="ml-4"><h3 class="font-bold">Dr. Priya Sharma</h3><p class="text-sm opacity-70">Cardiologist, Mumbai</p></div></div>
+                            <div class="flex items-center mb-4"><div class="avatar"><div class="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"><img src="https://i.pravatar.cc/150?u=doctor5" /></div></div><div class="ml-4"><h3 class="font-bold">Dr. Priya Sharma</h3><p class="text-sm opacity-70">Cardiologist, Mumbai</p></div></div>
                             <blockquote class="italic leading-relaxed">"The multilingual support is incredible. I can conduct consultations in Hindi and get perfect English documentation. It's like having a silent, intelligent assistant."</blockquote>
-                            <div class="rating rating-sm mt-4"><input type="radio" name="rating-2" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-2" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-2" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-2" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-2" class="mask mask-star-2 bg-primary" checked disabled /></div>
+                            <div class="flex items-center gap-1 text-primary mt-4">
+                              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star text-gray-300"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="testimonial-card card bg-base-100 shadow-xl">
                         <div class="card-body">
                             <div class="flex items-center mb-4"><div class="avatar"><div class="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"><img src="https://i.pravatar.cc/150?u=doctor3" /></div></div><div class="ml-4"><h3 class="font-bold">Dr. Ananya Reddy</h3><p class="text-sm opacity-70">Pediatrician</p></div></div>
                             <blockquote class="italic leading-relaxed">"A game-changer for my practice. The pediatric templates are spot on, and I can focus more on my little patients instead of typing."</blockquote>
-                            <div class="rating rating-sm mt-4"><input type="radio" name="rating-3" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-3" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-3" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-3" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-3" class="mask mask-star-2 bg-primary" checked disabled /></div>
+                            <div class="flex items-center gap-1 text-primary mt-4">
+                              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="testimonial-card card bg-base-100 shadow-xl">
                         <div class="card-body">
                             <div class="flex items-center mb-4"><div class="avatar"><div class="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"><img src="https://i.pravatar.cc/150?u=doctor4" /></div></div><div class="ml-4"><h3 class="font-bold">Dr. Rohan Mehta</h3><p class="text-sm opacity-70">Orthopedic Surgeon</p></div></div>
-                            <blockquote class="italic leading-relaxed">"I was skeptical about AI, but Eka Scribe's accuracy with complex orthopedic terminology is impressive. The time saved on post-op notes is significant."</blockquote>
-                            <div class="rating rating-sm mt-4"><input type="radio" name="rating-4" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-4" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-4" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-4" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-4" class="mask mask-star-2 bg-primary" checked disabled /></div>
+                            <blockquote class="italic leading-relaxed">"I was skeptical about AI, but EkaScribe's accuracy with complex orthopedic terminology is impressive. The time saved on post-op notes is significant."</blockquote>
+                            <div class="flex items-center gap-1 text-primary mt-4">
+                              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star text-gray-300"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="testimonial-card card bg-base-100 shadow-xl">
                         <div class="card-body">
-                            <div class="flex items-center mb-4"><div class="avatar"><div class="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"><img src="https://i.pravatar.cc/150?u=doctor5" /></div></div><div class="ml-4"><h3 class="font-bold">Dr. Vikram Singh</h3><p class="text-sm opacity-70">General Practitioner</p></div></div>
+                            <div class="flex items-center mb-4"><div class="avatar"><div class="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"><img src="https://i.pravatar.cc/150?u=doctor2" /></div></div><div class="ml-4"><h3 class="font-bold">Dr. Vikram Singh</h3><p class="text-sm opacity-70">General Practitioner</p></div></div>
                             <blockquote class="italic leading-relaxed">"My EMR integration is now seamless. A single click transfers the entire SOAP note, formatted correctly. It has reduced my administrative burden by at least 80%."</blockquote>
-                            <div class="rating rating-sm mt-4"><input type="radio" name="rating-5" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-5" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-5" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-5" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-5" class="mask mask-star-2 bg-primary" checked disabled /></div>
+                            <div class="flex items-center gap-1 text-primary mt-4">
+                              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="testimonial-card card bg-base-100 shadow-xl">
                         <div class="card-body">
                             <div class="flex items-center mb-4"><div class="avatar"><div class="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"><img src="https://i.pravatar.cc/150?u=doctor6" /></div></div><div class="ml-4"><h3 class="font-bold">Dr. Fatima Khan</h3><p class="text-sm opacity-70">Dermatologist</p></div></div>
                             <blockquote class="italic leading-relaxed">"Patient instructions are generated instantly and are easy for them to understand. This has improved patient compliance and follow-ups."</blockquote>
-                            <div class="rating rating-sm mt-4"><input type="radio" name="rating-6" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-6" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-6" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-6" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-6" class="mask mask-star-2 bg-primary" checked disabled /></div>
+                            <div class="flex items-center gap-1 text-primary mt-4">
+                              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star text-gray-300"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="testimonial-card card bg-base-100 shadow-xl">
                         <div class="card-body">
                             <div class="flex items-center mb-4"><div class="avatar"><div class="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"><img src="https://i.pravatar.cc/150?u=doctor7" /></div></div><div class="ml-4"><h3 class="font-bold">Dr. Chen Wei</h3><p class="text-sm opacity-70">Oncologist</p></div></div>
                             <blockquote class="italic leading-relaxed">"This tool is invaluable for long, complex oncology consults. The AI summary helps track patient progress visit-over-visit. A must-have."</blockquote>
-                            <div class="rating rating-sm mt-4"><input type="radio" name="rating-7" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-7" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-7" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-7" class="mask mask-star-2 bg-primary" checked disabled /><input type="radio" name="rating-7" class="mask mask-star-2 bg-primary" checked disabled /></div>
+                            <div class="flex items-center gap-1 text-primary mt-4">
+                              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -854,13 +885,13 @@
       <div class="container mx-auto px-4">
         <div class="text-center mb-20">
           <h2 class="text-4xl font-bold font-display">Our most-loved features</h2>
-          <p class="mt-4 text-lg text-base-content/70 max-w-3xl mx-auto">Eka Scribe doesn’t just save you time — it transforms your whole workflow. Learn how our features work together to make your day easier.</p>
+          <p class="mt-4 text-lg text-base-content/70 max-w-3xl mx-auto">EkaScribe doesn’t just save you time — it transforms your whole workflow. Learn how our features work together to make your day easier.</p>
         </div>
         
         <div class="max-w-7xl mx-auto space-y-24">
 
           <!-- Feature 1: Smart Visit Prep -->
-          <div class="feature-block grid md:grid-cols-2 gap-12 items-center p-12 bg-base-200 rounded-2xl">
+          <div class="feature-block grid md:grid-cols-2 gap-12 items-center p-6 md:p-12 bg-base-200 rounded-2xl">
             <!-- Text Content -->
             <div>
               <h3 class="text-3xl lg:text-4xl font-bold font-display mb-4">Smart visit prep</h3>
@@ -929,47 +960,7 @@
           </div>
 
           <!-- Feature 2: Note Customization -->
-          <div class="feature-block grid md:grid-cols-2 gap-12 items-center p-12 bg-base-200 rounded-2xl">
-            <!-- Coded Snippet 2: Templates UI -->
-            <div class="mockup-browser bg-base-200 border border-gray-200">
-                    <div class="mockup-browser-toolbar">
-                      <div class="tabs">
-                        <a class="tab tab-lifted tab-active">My Library</a> 
-                        <a class="tab tab-lifted">Team Library</a>
-                        <a class="tab tab-lifted">+ New</a>
-                      </div>
-                    </div>
-                    <div class="bg-base-100 px-4 py-4">
-                        <div class="overflow-x-auto">
-                            <table class="table table-sm">
-                              <thead>
-                                <tr>
-                                  <th>Template Name</th>
-                                  <th>Specialty</th>
-                                  <th>Status</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td><i class="fal fa-file-alt mr-2 text-primary"></i>Sick Visit</td>
-                                  <td>Emergency</td>
-                                  <td></td>
-                                </tr>
-                                <tr class="highlight-row bg-primary/10">
-                                  <td><i class="fal fa-file-alt mr-2 text-primary"></i>New Patient Visit</td>
-                                  <td>Pediatrics</td>
-                                  <td><span class="badge badge-ghost badge-xs">✓ Added</span></td>
-                                </tr>
-                                <tr>
-                                  <td><i class="fal fa-file-alt mr-2 text-primary"></i>Wellness Visit</td>
-                                  <td>Psychiatry</td>
-                                  <td></td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                    </div>
-            </div>
+          <div class="feature-block grid md:grid-cols-2 gap-12 items-center p-6 md:p-12 bg-base-200 rounded-2xl">
             <!-- Text Content -->
             <div>
               <h3 class="text-3xl lg:text-4xl font-bold font-display mb-4">Customized notes for every doctor </h3>
@@ -998,10 +989,50 @@
                 </li>
               </ul>
             </div>
+            <!-- Coded Snippet 2: Templates UI -->
+            <div class="mockup-browser bg-base-200 border border-gray-200 md:order-first">
+              <div class="mockup-browser-toolbar">
+                <div class="tabs">
+                  <a class="tab tab-lifted tab-active">My Library</a>
+                  <a class="tab tab-lifted">Team Library</a>
+                  <a class="tab tab-lifted">+ New</a>
+                </div>
+              </div>
+              <div class="bg-base-100 px-4 py-4">
+                <div class="overflow-x-auto">
+                  <table class="table table-sm">
+                    <thead>
+                      <tr>
+                        <th>Template Name</th>
+                        <th>Specialty</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><i class="fal fa-file-alt mr-2 text-primary"></i>Sick Visit</td>
+                        <td>Emergency</td>
+                        <td></td>
+                      </tr>
+                      <tr class="highlight-row bg-primary/10">
+                        <td><i class="fal fa-file-alt mr-2 text-primary"></i>New Patient Visit</td>
+                        <td>Pediatrics</td>
+                        <td><span class="badge badge-ghost badge-xs">✓ Added</span></td>
+                      </tr>
+                      <tr>
+                        <td><i class="fal fa-file-alt mr-2 text-primary"></i>Wellness Visit</td>
+                        <td>Psychiatry</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Feature 3: Smart Edit -->
-          <div class="feature-block grid md:grid-cols-2 gap-12 items-center p-12 bg-base-200 rounded-2xl">
+          <div class="feature-block grid md:grid-cols-2 gap-12 items-center p-6 md:p-12 bg-base-200 rounded-2xl">
             <!-- Text Content -->
             <div>
               <h3 class="text-3xl lg:text-4xl font-bold font-display mb-4">Smart edit</h3>
@@ -1011,14 +1042,14 @@
                   <div class="bg-primary/10 text-primary p-3 rounded-lg mr-4"><i class="fal fa-user-md fa-fw text-xl"></i></div>
                   <div>
                     <h4 class="font-semibold text-lg">Doctor Chat</h4>
-                    <p class="text-base-content/60">Built for doctors, Eka Scribe understands your natural language and commands.</p>
+                    <p class="text-base-content/60">Built for doctors, EkaScribe understands your natural language and commands.</p>
                   </div>
                 </li>
                 <li class="flex items-start">
                   <div class="bg-primary/10 text-primary p-3 rounded-lg mr-4"><i class="fal fa-brain fa-fw text-xl"></i></div>
                   <div>
                     <h4 class="font-semibold text-lg">Clinical Context</h4>
-                    <p class="text-base-content/60">Eka Scribe understands the clinical context, from medical terms to specific details in your note.</p>
+                    <p class="text-base-content/60">EkaScribe understands the clinical context, from medical terms to specific details in your note.</p>
                   </div>
                 </li>
                 <li class="flex items-start">
@@ -1039,7 +1070,7 @@
                     <i class="fal fa-magic text-primary mr-2"></i>
                     <h4 class="card-title text-base m-0">Smart Edit</h4>
                   </div>
-                  <p class="text-xs text-base-content/60 mb-2">How should Eka Scribe improve this note?</p>
+                  <p class="text-xs text-base-content/60 mb-2">How should EkaScribe improve this note?</p>
                   <textarea class="textarea textarea-bordered textarea-sm w-full" rows="3" placeholder="e.g., Make this more concise..."></textarea>
                   <div class="card-actions flex justify-end gap-2 mt-2">
                     <button class="btn btn-ghost btn-xs">Close</button>
@@ -1051,7 +1082,7 @@
           </div>
 
           <!-- Feature 4: Patient Instructions -->
-          <div class="feature-block grid md:grid-cols-2 gap-12 items-center p-12 bg-base-200 rounded-2xl">
+          <div class="feature-block grid md:grid-cols-2 gap-12 items-center p-6 md:p-12 bg-base-200 rounded-2xl">
             
             <!-- Text Content -->
             <div>
@@ -1176,14 +1207,14 @@
                   <i class="fal fa-gift text-success mr-3 mt-1"></i>
                   <div>
                     <strong class="text-base-content">Free trial</strong>
-                    <div class="text-sm text-base-content/60">Experience Eka Scribe risk-free with a trial period before you commit.</div>
+                    <div class="text-sm text-base-content/60">Experience EkaScribe risk-free with a trial period before you commit.</div>
                   </div>
                 </li>
                 <li class="flex items-start">
                   <i class="fal fa-edit text-success mr-3 mt-1"></i>
                   <div>
                     <strong class="text-base-content">Smart edit</strong>
-                    <div class="text-sm text-base-content/60">Ask Eka Scribe to refine or rework your notes instantly.</div>
+                    <div class="text-sm text-base-content/60">Ask EkaScribe to refine or rework your notes instantly.</div>
                   </div>
                 </li>
                 <li class="flex items-start">
@@ -1204,7 +1235,7 @@
                   <i class="fal fa-graduation-cap text-success mr-3 mt-1"></i>
                   <div>
                     <strong class="text-base-content">Learn my style</strong>
-                    <div class="text-sm text-base-content/60">Edit once, and Eka Scribe adapts — future notes follow your preferred format automatically.</div>
+                    <div class="text-sm text-base-content/60">Edit once, and EkaScribe adapts — future notes follow your preferred format automatically.</div>
                   </div>
                 </li>
                 <li class="flex items-start">
@@ -1219,8 +1250,8 @@
               <!-- Dynamic CTA Button -->
               <div class="card-actions w-full md:w-3/4">
                 <a id="cta-button" href="https://scribe.eka.care/" class="btn btn-primary w-full btn-lg">
-                  <i class="fal fa-sign-in-alt mr-2"></i>
-                  <span id="cta-text">Login</span>
+                  <i class="fal fa-play mr-2"></i>
+                  Try for free
                 </a>
               </div>
             </div>
@@ -1233,7 +1264,7 @@
     <section id="faq" class="section py-20 container mx-auto px-4">
       <div class="text-center mb-12">
         <h2 class="text-4xl font-bold font-display">Frequently Asked Questions</h2>
-        <p class="mt-4 text-lg text-base-content/70">Get answers to common questions about Eka Scribe</p>
+        <p class="mt-4 text-lg text-base-content/70">Get answers to common questions about EkaScribe</p>
       </div>
       
       <div class="max-w-4xl mx-auto space-y-4">
@@ -1241,10 +1272,10 @@
           <input type="radio" name="faq-accordion" checked="checked" />
           <div class="collapse-title text-lg font-medium">
             <i class="fal fa-question-circle text-primary mr-3"></i>
-            What is Eka Scribe?
+            What is EkaScribe?
           </div>
           <div class="collapse-content">
-            <p class="text-base-content/80">Eka Scribe is an AI-powered medical scribe that records doctor-patient conversations and auto-generates summaries, clinical notes, prescriptions, and structured EMR entries with medical-grade accuracy.</p>
+            <p class="text-base-content/80">EkaScribe is an AI-powered medical scribe that records doctor-patient conversations and auto-generates summaries, clinical notes, prescriptions, and structured EMR entries with medical-grade accuracy.</p>
           </div>
         </div>
 
@@ -1255,7 +1286,7 @@
             Is patient data secure?
           </div>
           <div class="collapse-content">
-            <p class="text-base-content/80">Yes, Eka Scribe is designed with the highest standards of security and privacy, adhering to HIPAA guidelines to ensure all patient data is protected. All audio and text data is encrypted both in transit and at rest.</p>
+            <p class="text-base-content/80">Yes, EkaScribe is designed with the highest standards of security and privacy, adhering to HIPAA guidelines to ensure all patient data is protected. All audio and text data is encrypted both in transit and at rest.</p>
           </div>
         </div>
 
@@ -1266,7 +1297,7 @@
             Works for in-person and teleconsults?
           </div>
           <div class="collapse-content">
-            <p class="text-base-content/80">Absolutely. Eka Scribe is built for flexibility and works seamlessly for both in-person consultations and remote teleconsultations, capturing audio from any environment with noise cancellation technology.</p>
+            <p class="text-base-content/80">Absolutely. EkaScribe is built for flexibility and works seamlessly for both in-person consultations and remote teleconsultations, capturing audio from any environment with noise cancellation technology.</p>
           </div>
         </div>
 
@@ -1277,7 +1308,7 @@
             How much time can be saved?
           </div>
           <div class="collapse-content">
-            <p class="text-base-content/80">Our users report saving over 12 hours per week on average. By automating clinical documentation, Eka Scribe reduces administrative work by up to 80%, freeing you to focus on your patients.</p>
+            <p class="text-base-content/80">Our users report saving over 12 hours per week on average. By automating clinical documentation, EkaScribe reduces administrative work by up to 80%, freeing you to focus on your patients.</p>
           </div>
         </div>
 
@@ -1288,7 +1319,7 @@
             Which languages are supported?
           </div>
           <div class="collapse-content">
-            <p class="text-base-content/80">Eka Scribe supports 15+ languages including Hindi, Bengali, Telugu, Tamil, Marathi, Gujarati, Kannada, Malayalam, Punjabi, Urdu, and more. We're optimized for Indian medical accents and terminology.</p>
+            <p class="text-base-content/80">EkaScribe supports 15+ languages including Hindi, Bengali, Telugu, Tamil, Marathi, Gujarati, Kannada, Malayalam, Punjabi, Urdu, and more. We're optimized for Indian medical accents and terminology.</p>
           </div>
         </div>
 
@@ -1312,7 +1343,7 @@
           <div>
             <div class="flex items-center mb-4">
               <i class="fa-kit fa-scribe-logo text-white text-2xl mr-2"></i>
-              <span class="text-xl font-bold font-display">Eka Scribe</span>
+              <span class="text-xl font-bold font-display">EkaScribe</span>
             </div>
             <p class="text-white/80 mb-4">AI-powered clinical documentation that saves doctors time and improves patient care.</p>
           </div>
@@ -1344,12 +1375,12 @@
         
         <div class="divider border-white/20"></div>
         
-        <div class="flex flex-col md:flex-row justify-between items-center text-sm text-white/60">
-          <div>© <span id="year"></span> Eka Scribe. All rights reserved.</div>
+        <div class="flex flex-col md:flex-row justify-between items-center text-sm text-white/60 gap-4">
+          <div>© <span id="year"></span> EkaScribe. All rights reserved.</div>
           <div class="flex gap-4 mt-4 md:mt-0">
-            <a href="#" class="link link-hover text-white/60 hover:text-white">Privacy Policy</a>
-            <a href="#" class="link link-hover text-white/60 hover:text-white">Terms of Service</a>
-            <a href="#" class="link link-hover text-white/60 hover:text-white">Security</a>
+            <a href="https://www.eka.care/privacy-policy" class="link link-hover text-white/60 hover:text-white">Privacy Policy</a>
+            <a href="https://www.eka.care/privacy-policy" class="link link-hover text-white/60 hover:text-white">Terms of Service</a>
+            <a href="https://www.eka.care/security" class="link link-hover text-white/60 hover:text-white">Security</a>
           </div>
         </div>
       </div>
@@ -1386,7 +1417,7 @@
         .from('.hero-title', { duration: 0.8, y: 50, opacity: 0, ease: "power2.out" }, "-=0.4")
         .from('.hero-subtitle', { duration: 0.6, y: 30, opacity: 0, ease: "power2.out" }, "-=0.3")
         .from('.hero-cta', { duration: 0.6, y: 30, opacity: 0, ease: "power2.out" }, "-=0.2")
-        .from('.hero-features', { duration: 0.6, y: 30, opacity: 0, ease: "power2.out" }, "-=0.1")
+        .from('.hero-trust-logos', { duration: 0.6, y: 30, opacity: 0, ease: "power2.out" }, "-=0.1")
         .from('.hero-product-preview', { duration: 0.8, y: 50, opacity: 0, ease: "power2.out" }, "-=0.3");
 
       // Product snippets animation

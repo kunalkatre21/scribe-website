@@ -347,6 +347,32 @@
         transform: scale(1.05);
       }
 
+      /* Marquee Styles */
+      .marquee-container {
+        position: relative;
+        overflow: hidden;
+        padding: 20px 0;
+      }
+
+      .marquee-track {
+        display: flex;
+        animation: scroll 30s linear infinite;
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* Pause marquee on hover */
+      .marquee-container:hover .marquee-track {
+        animation-play-state: paused;
+      }
+
       /* Hide browser mockup dots on mobile */
       @media (max-width: 767px) {
         .mockup-browser .mockup-browser-toolbar::before {
@@ -542,6 +568,45 @@
       </div>
     </section>
 
+    <!-- Partners Marquee -->
+    <section class="py-8 bg-gray-50 border-y border-gray-200">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-6">
+          <h2 class="text-2xl font-bold font-display text-base-content">Our Trusted Healthcare Partners</h2>
+          <p class="text-base-content/60 mt-2">Leading healthcare institutions trust EkaScribe for their clinical documentation needs</p>
+        </div>
+        <div class="marquee-container overflow-hidden relative">
+          <div class="marquee-track flex items-center gap-8" style="animation: scroll 30s linear infinite;">
+            <!-- Partner Logos -->
+            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409b431b1439b1652b3_pratham%20hospital%20mysore.webp" alt="Pratham Hospital, Mysore" class="trust-logo h-16 md:h-20 object-contain" />
+            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4097087aee2c10473bb_sardardham%20hospital%2C%20ahmedabad.webp" alt="Sardardham Hospital, Ahmedabad" class="trust-logo h-16 md:h-20 object-contain" />
+            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409a682bd3dc48a9f09_medanta.webp" alt="Medanta" class="trust-logo h-16 md:h-20 object-contain" />
+            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4094eb16d20c1eb7829_healthland.webp" alt="Healthland" class="trust-logo h-16 md:h-20 object-contain" />
+            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4097ea3912fb5bcfcdb_smilestation.webp" alt="Smilestation" class="trust-logo h-16 md:h-20 object-contain" />
+            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409e9233d427f636a4a_vaayu.webp" alt="Vaayu" class="trust-logo h-16 md:h-20 object-contain" />
+            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409f3e4aa35f7405ad3_shruta%20eye%20care.webp" alt="Shruta Eye Care" class="trust-logo h-16 md:h-20 object-contain" />
+            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4099129dbee28c888a7_metropolis.webp" alt="Metropolis" class="trust-logo h-16 md:h-20 object-contain" />
+            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409efce973a78422ab4_mittal%20nursing%20home.webp" alt="Mittal Nursing Home" class="trust-logo h-16 md:h-20 object-contain" />
+            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409566afdb5d7d77245_mittal%20hospital.webp" alt="Mittal Hospital" class="trust-logo h-16 md:h-20 object-contain" />
+            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4090689ad4303ace0b2_b%20lal%20hospital.webp" alt="B. Lal Hospital" class="trust-logo h-16 md:h-20 object-contain" />
+            
+            <!-- Duplicate for seamless loop -->
+            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409b431b1439b1652b3_pratham%20hospital%20mysore.webp" alt="Pratham Hospital, Mysore" class="trust-logo h-16 md:h-20 object-contain" />
+            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4097087aee2c10473bb_sardardham%20hospital%2C%20ahmedabad.webp" alt="Sardardham Hospital, Ahmedabad" class="trust-logo h-16 md:h-20 object-contain" />
+            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409a682bd3dc48a9f09_medanta.webp" alt="Medanta" class="trust-logo h-16 md:h-20 object-contain" />
+            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4094eb16d20c1eb7829_healthland.webp" alt="Healthland" class="trust-logo h-16 md:h-20 object-contain" />
+            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4097ea3912fb5bcfcdb_smilestation.webp" alt="Smilestation" class="trust-logo h-16 md:h-20 object-contain" />
+            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409e9233d427f636a4a_vaayu.webp" alt="Vaayu" class="trust-logo h-16 md:h-20 object-contain" />
+            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409f3e4aa35f7405ad3_shruta%20eye%20care.webp" alt="Shruta Eye Care" class="trust-logo h-16 md:h-20 object-contain" />
+            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4099129dbee28c888a7_metropolis.webp" alt="Metropolis" class="trust-logo h-16 md:h-20 object-contain" />
+            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409efce973a78422ab4_mittal%20nursing%20home.webp" alt="Mittal Nursing Home" class="trust-logo h-16 md:h-20 object-contain" />
+            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409566afdb5d7d77245_mittal%20hospital.webp" alt="Mittal Hospital" class="trust-logo h-16 md:h-20 object-contain" />
+            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4090689ad4303ace0b2_b%20lal%20hospital.webp" alt="B. Lal Hospital" class="trust-logo h-16 md:h-20 object-contain" />
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Impact Stats -->
     <section class="section py-20 bg-primary text-primary-content">
       <div class="container mx-auto px-4 text-center">
@@ -694,7 +759,7 @@
                 <ul class="list-none space-y-2 text-left">
                   <li class="flex items-center"><i class="fal fa-microphone text-primary mr-2 text-sm"></i> Live voice recording</li>
                   <li class="flex items-center"><i class="fal fa-upload text-primary mr-2 text-sm"></i> Audio file upload</li>
-                  <li class="flex items-center"><i class="fal fa-headphones text-primary mr-2 text-sm"></i> Noise cancellation</li>
+                  <li class="flex items-center"><i class="fal fa-file-alt text-primary mr-2 text-sm"></i> Custom Template</li>
                 </ul>
               </div>
             </div>
